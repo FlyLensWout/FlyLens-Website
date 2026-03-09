@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #02172d;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+}
+
+/* Prevent right-click and drag on videos */
+.video-protected {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Allow play/pause controls but block download context menu */
+.video-container {
+  position: relative;
+}
+
+.video-container video {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.video-container video::-webkit-media-controls-enclosure {
+  pointer-events: auto;
+}
