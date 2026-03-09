@@ -1,0 +1,46 @@
+{
+  "nav": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "clientWork": "Klantenwerk",
+    "about": "Over ons",
+    "contact": "Contact"
+  },
+  "home": {
+    "slogan": "A new angle on the world",
+    "heroSubtitle": "Professionele drone stock videografie",
+    "stockPlatforms": "Bekijk onze video's op",
+    "viewPortfolio": "Bekijk portfolio",
+    "contactUs": "Neem contact op"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Een selectie van onze drone videografie",
+    "noVideos": "Binnenkort meer video's beschikbaar."
+  },
+  "clientWork": {
+    "title": "Klantenwerk",
+    "subtitle": "Projecten die we voor klanten hebben gerealiseerd",
+    "comingSoon": "Binnenkort beschikbaar",
+    "comingSoonText": "We werken aan onze eerste klantenprojecten. Neem contact op als u geïnteresseerd bent in onze diensten."
+  },
+  "about": {
+    "title": "Over Flylens",
+    "subtitle": "De piloot achter de lens"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Neem contact met ons op",
+    "name": "Naam",
+    "email": "E-mail",
+    "message": "Bericht",
+    "send": "Verstuur",
+    "success": "Bericht succesvol verstuurd!",
+    "error": "Er is iets misgegaan. Probeer het later opnieuw."
+  },
+  "footer": {
+    "rights": "Alle rechten voorbehouden",
+    "stockPlatforms": "Stock platforms",
+    "followUs": "Volg ons"
+  }
+}
