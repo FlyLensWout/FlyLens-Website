@@ -3,11 +3,25 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Inter } from "next/font/google";
+import type { Metadata } from "next";
 import "../globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s | Flylens",
+    default: "Flylens - A New Angle on the World",
+  },
+  description:
+    "Professional drone stock videography by Flylens. Aerial landscapes and cinematic footage.",
+  openGraph: {
+    type: "website",
+    siteName: "Flylens",
+  },
+};
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
