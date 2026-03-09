@@ -1,0 +1,74 @@
+"use client";
+
+import { useState } from "react";
+import ProtectedVideoPlayer from "@/components/video/ProtectedVideoPlayer";
+import Image from "next/image";
+
+interface PortfolioCardProps {
+  title: string;
+  description: string;
+  playbackId: string;
+  token: string;
+  thumbnailUrl: string;
+  tags: string[];
+}
+
+export default function PortfolioCard({
+  title,
+  description,
+  playbackId,
+  token,
+  thumbnailUrl,
+  tags,
+}: PortfolioCardProps) {
+  const [playing, setPlaying] = useState(false);
+
+  return (
+    <div className="group rounded-xl overflow-hidden border border-white/10 bg-white/5 hover:border-accent/30 transition-all">
+      {playing ? (
+        <ProtectedVideoPlayer
+          playbackId={playbackId}
+          token={token}
+          title={title}
+          poster={thumbnailUrl}
+        />
+      ) : (
+        <div
+          className="relative aspect-video cursor-pointer"
+          onClick={() => setPlaying(true)}
+        >
+          <Image
+            src={thumbnailUrl}
+            alt={title}
+            fill
+            className="object-cover"
+          />
+          {/* Play button overlay */}
+          <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors">
+            <div className="w-16 h-16 rounded-full bg-accent/90 flex items-center justify-center">
+              <svg className="w-6 h-6 text-primary ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      )}
+      <div className="p-4">
+        <h3 className="font-semibold text-white">{title}</h3>
+        <p className="text-gray-400 text-sm mt-1 line-clamp-2">{description}</p>
+        {tags && tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mt-3">
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="text-xs px-2 py-1 rounded-full bg-accent/10 text-accent"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
