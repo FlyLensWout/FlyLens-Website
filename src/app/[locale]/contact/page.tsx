@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import ContactForm from "@/components/contact/ContactForm";
 import type { Metadata } from "next";
 
@@ -6,7 +6,12 @@ export const metadata: Metadata = {
   title: "Contact",
 };
 
-export default async function ContactPage() {
+export default async function ContactPage({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  setRequestLocale(params.locale);
   const t = await getTranslations("contact");
 
   return (

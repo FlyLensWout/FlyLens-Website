@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { sanityClient } from "@/lib/sanity/client";
 import { getSignedPlaybackToken, getSignedThumbnailToken } from "@/lib/mux";
 import Image from "next/image";
@@ -50,9 +50,10 @@ async function getClientWorkItems(locale: string) {
 export default async function ClientWorkPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: { locale: string };
 }) {
-  const { locale } = await params;
+  const { locale } = params;
+  setRequestLocale(locale);
   const t = await getTranslations("clientWork");
 
   let items: Awaited<ReturnType<typeof getClientWorkItems>> = [];

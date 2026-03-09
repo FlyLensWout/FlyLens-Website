@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,7 +6,12 @@ export const metadata: Metadata = {
   description: "About Flylens - Professional drone stock videography",
 };
 
-export default async function AboutPage() {
+export default async function AboutPage({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  setRequestLocale(params.locale);
   const t = await getTranslations("about");
 
   return (

@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { sanityClient } from "@/lib/sanity/client";
 import { getSignedPlaybackToken, getSignedThumbnailToken } from "@/lib/mux";
 import PortfolioGrid from "@/components/portfolio/PortfolioGrid";
@@ -42,9 +42,10 @@ async function getPortfolioItems(locale: string) {
 export default async function PortfolioPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: { locale: string };
 }) {
-  const { locale } = await params;
+  const { locale } = params;
+  setRequestLocale(locale);
   const t = await getTranslations("portfolio");
 
   let items: Awaited<ReturnType<typeof getPortfolioItems>> = [];

@@ -1,3 +1,4 @@
+import { setRequestLocale } from "next-intl/server";
 import HeroSection from "@/components/home/HeroSection";
 import StockPlatforms from "@/components/home/StockPlatforms";
 import QuickLinks from "@/components/home/QuickLinks";
@@ -8,7 +9,13 @@ export const metadata: Metadata = {
   description: "Professional drone stock videography by Flylens. Aerial landscapes and cinematic footage available on Shutterstock, Adobe Stock, Pond5, and Dreamstime.",
 };
 
-export default function HomePage() {
+export default function HomePage({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  setRequestLocale(params.locale);
+
   return (
     <>
       <HeroSection />
