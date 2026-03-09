@@ -1,6 +1,5 @@
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function HeroSection() {
   const t = useTranslations("home");
@@ -13,14 +12,11 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
-        <Image
-          src="/logo/logo met slogan/wit met slogan.png"
-          alt="Flylens - A new angle on the world"
-          width={400}
-          height={200}
-          className="mx-auto mb-8 w-64 sm:w-80 md:w-96 h-auto"
-          priority
-        />
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
+          {t("heroTitle1")}
+          <br />
+          <span className="text-accent">{t("heroTitle2")}</span>
+        </h1>
         <p className="text-lg sm:text-xl text-gray-300 mb-10">
           {t("heroSubtitle")}
         </p>

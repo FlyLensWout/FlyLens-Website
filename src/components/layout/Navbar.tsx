@@ -20,16 +20,16 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-primary backdrop-blur-md border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+        <div className="flex items-center justify-between">
           <Link href={`/${locale}`} className="flex items-center gap-2">
             <Image
-              src="/logo/logo zonder slogan/wit zonder slogan.png"
+              src="/logo/logo zonder slogan/kleur zonder slogan.png"
               alt="Flylens"
-              width={120}
-              height={40}
-              className="h-8 w-auto"
+              width={240}
+              height={96}
+              className="h-24 w-auto"
             />
           </Link>
 
@@ -39,7 +39,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-300 hover:text-accent transition-colors text-sm font-medium"
+                className="text-primary hover:text-accent transition-colors text-sm font-medium"
               >
                 {link.label}
               </Link>
@@ -49,7 +49,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden text-white"
+            className="md:hidden text-primary"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -65,12 +65,12 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="md:hidden pb-4 space-y-2">
+          <div className="md:hidden pb-4 space-y-2 bg-white border-t border-gray-200 mt-2">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="block px-3 py-2 text-gray-300 hover:text-accent transition-colors"
+                className="block px-3 py-2 text-primary hover:text-accent hover:bg-gray-50 transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}

@@ -1,5 +1,6 @@
 import HeroSection from "@/components/home/HeroSection";
 import StockPlatforms from "@/components/home/StockPlatforms";
+import QuickLinks from "@/components/home/QuickLinks";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,6 +13,7 @@ export default function HomePage() {
     <>
       <HeroSection />
       <StockPlatforms />
+      <QuickLinks />
     </>
   );
 }

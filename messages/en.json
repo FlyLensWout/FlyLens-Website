@@ -8,10 +8,18 @@
   },
   "home": {
     "slogan": "A new angle on the world",
+    "heroTitle1": "Aerial Perspectives,",
+    "heroTitle2": "Stunning Footage",
     "heroSubtitle": "Professional drone stock videography",
     "stockPlatforms": "Watch our videos on",
+    "stockSubtitle": "Browse and purchase our drone stock videos on these platforms.",
     "viewPortfolio": "View portfolio",
-    "contactUs": "Get in touch"
+    "contactUs": "Get in touch",
+    "portfolioCard": "Portfolio",
+    "portfolioCardDesc": "Explore our collection of aerial drone footage.",
+    "clientWorkCard": "Client Work",
+    "clientWorkCardDesc": "Custom drone videography projects for clients.",
+    "viewClientWork": "View projects"
   },
   "portfolio": {
     "title": "Portfolio",
@@ -34,6 +42,7 @@
     "name": "Name",
     "email": "Email",
     "message": "Message",
+    "description": "Have a question about our footage or interested in a custom project? We'd love to hear from you.",
     "send": "Send",
     "success": "Message sent successfully!",
     "error": "Something went wrong. Please try again later."

@@ -21,7 +21,7 @@ export default function LanguageSwitcher() {
         className={`px-2 py-1 rounded transition-colors ${
           locale === "nl"
             ? "bg-accent text-primary font-semibold"
-            : "text-gray-400 hover:text-white"
+            : "text-primary/60 hover:text-primary"
         }`}
       >
         NL
@@ -31,7 +31,7 @@ export default function LanguageSwitcher() {
         className={`px-2 py-1 rounded transition-colors ${
           locale === "en"
             ? "bg-accent text-primary font-semibold"
-            : "text-gray-400 hover:text-white"
+            : "text-primary/60 hover:text-primary"
         }`}
       >
         EN

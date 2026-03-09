@@ -8,10 +8,18 @@
   },
   "home": {
     "slogan": "A new angle on the world",
+    "heroTitle1": "Luchtperspectieven,",
+    "heroTitle2": "Adembenemende Beelden",
     "heroSubtitle": "Professionele drone stock videografie",
     "stockPlatforms": "Bekijk onze video's op",
+    "stockSubtitle": "Bekijk en koop onze drone stock video's op deze platformen.",
     "viewPortfolio": "Bekijk portfolio",
-    "contactUs": "Neem contact op"
+    "contactUs": "Neem contact op",
+    "portfolioCard": "Portfolio",
+    "portfolioCardDesc": "Ontdek onze collectie luchtfoto's en drone beelden.",
+    "clientWorkCard": "Klantenwerk",
+    "clientWorkCardDesc": "Op maat gemaakte drone videografie projecten voor klanten.",
+    "viewClientWork": "Bekijk projecten"
   },
   "portfolio": {
     "title": "Portfolio",
@@ -34,6 +42,7 @@
     "name": "Naam",
     "email": "E-mail",
     "message": "Bericht",
+    "description": "Heeft u een vraag over onze beelden of bent u geïnteresseerd in een project op maat? We horen graag van u.",
     "send": "Verstuur",
     "success": "Bericht succesvol verstuurd!",
     "error": "Er is iets misgegaan. Probeer het later opnieuw."

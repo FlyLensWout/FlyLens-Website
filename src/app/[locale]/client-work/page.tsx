@@ -67,12 +67,25 @@ export default async function ClientWorkPage({
       <div className="pt-8 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-3xl sm:text-4xl font-bold mb-4">{t("title")}</h1>
-          <p className="text-gray-600 text-lg mb-12">{t("subtitle")}</p>
-          <div className="max-w-md mx-auto p-8 rounded-xl border border-gray-200 bg-white shadow-sm">
-            <h2 className="text-xl font-semibold text-accent mb-4">
+          <p className="text-primary/60 text-lg mb-12">{t("subtitle")}</p>
+          <div className="max-w-md mx-auto bg-gray-50 rounded-2xl p-12 flex flex-col items-center">
+            <svg
+              className="w-16 h-16 text-primary/20 mb-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1}
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            <h2 className="text-xl font-semibold text-primary/40 mb-2">
               {t("comingSoon")}
             </h2>
-            <p className="text-gray-600">{t("comingSoonText")}</p>
+            <p className="text-primary/30">{t("comingSoonText")}</p>
           </div>
         </div>
       </div>
@@ -84,7 +97,7 @@ export default async function ClientWorkPage({
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-3xl sm:text-4xl font-bold mb-4">{t("title")}</h1>
-          <p className="text-gray-600 text-lg">{t("subtitle")}</p>
+          <p className="text-primary/60 text-lg">{t("subtitle")}</p>
         </div>
         <div className="space-y-16">
           {items.map((item) => (
