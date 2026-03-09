@@ -1,10 +1,17 @@
-import { useTranslations } from "next-intl";
+import HeroSection from "@/components/home/HeroSection";
+import StockPlatforms from "@/components/home/StockPlatforms";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Flylens - A New Angle on the World",
+  description: "Professional drone stock videography by Flylens. Aerial landscapes and cinematic footage available on Shutterstock, Adobe Stock, Pond5, and Dreamstime.",
+};
 
 export default function HomePage() {
-  const t = useTranslations("home");
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <h1 className="text-4xl font-bold text-accent">{t("slogan")}</h1>
-    </div>
+    <>
+      <HeroSection />
+      <StockPlatforms />
+    </>
   );
 }
