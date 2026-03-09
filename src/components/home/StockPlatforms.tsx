@@ -35,9 +35,9 @@ export default function StockPlatforms() {
               href={platform.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block p-6 rounded-xl border border-white/10 bg-white/5 hover:border-accent/50 hover:bg-accent/5 transition-all duration-300"
+              className="group block p-6 rounded-xl border border-gray-200 bg-gray-50 hover:border-accent hover:bg-accent/5 shadow-sm hover:shadow-md transition-all duration-300"
             >
-              <h3 className="text-lg font-semibold text-white group-hover:text-accent transition-colors">
+              <h3 className="text-lg font-semibold text-primary group-hover:text-accent transition-colors">
                 {platform.name}
               </h3>
               <span className="inline-block mt-4 text-accent text-sm font-medium group-hover:translate-x-1 transition-transform">

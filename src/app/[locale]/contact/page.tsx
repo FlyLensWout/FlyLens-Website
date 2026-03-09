@@ -14,9 +14,9 @@ export default async function ContactPage() {
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-3xl sm:text-4xl font-bold mb-4">{t("title")}</h1>
-          <p className="text-gray-400 text-lg">{t("subtitle")}</p>
+          <p className="text-gray-600 text-lg">{t("subtitle")}</p>
         </div>
-        <div className="p-8 rounded-xl border border-white/10 bg-white/5">
+        <div className="p-8 rounded-xl border border-gray-200 bg-white shadow-sm">
           <ContactForm />
         </div>
         <div className="mt-8 text-center space-y-2">

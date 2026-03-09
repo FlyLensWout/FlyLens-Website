@@ -19,7 +19,7 @@ export default function PortfolioGrid({ items, noVideosText }: PortfolioGridProp
   if (items.length === 0) {
     return (
       <div className="text-center py-20">
-        <p className="text-gray-400 text-lg">{noVideosText}</p>
+        <p className="text-gray-600 text-lg">{noVideosText}</p>
       </div>
     );
   }

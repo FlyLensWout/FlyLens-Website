@@ -24,7 +24,7 @@ export default function PortfolioCard({
   const [playing, setPlaying] = useState(false);
 
   return (
-    <div className="group rounded-xl overflow-hidden border border-white/10 bg-white/5 hover:border-accent/30 transition-all">
+    <div className="group rounded-xl overflow-hidden border border-gray-200 bg-white hover:border-accent shadow-sm hover:shadow-md transition-all">
       {playing ? (
         <ProtectedVideoPlayer
           playbackId={playbackId}
@@ -54,8 +54,8 @@ export default function PortfolioCard({
         </div>
       )}
       <div className="p-4">
-        <h3 className="font-semibold text-white">{title}</h3>
-        <p className="text-gray-400 text-sm mt-1 line-clamp-2">{description}</p>
+        <h3 className="font-semibold text-primary">{title}</h3>
+        <p className="text-gray-600 text-sm mt-1 line-clamp-2">{description}</p>
         {tags && tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mt-3">
             {tags.map((tag) => (

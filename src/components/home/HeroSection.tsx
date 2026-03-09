@@ -7,7 +7,7 @@ export default function HeroSection() {
   const locale = useLocale();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary">
       {/* Gradient overlay for depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/30 to-primary z-10" />
 
