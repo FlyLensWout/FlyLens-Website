@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Inter } from "next/font/google";
 import "../globals.css";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,7 +32,9 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body className={`${inter.className} bg-primary text-white min-h-screen`}>
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <Navbar />
+          <main className="pt-16">{children}</main>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
