@@ -12,12 +12,15 @@
     "@mux/mux-node": "^12.8.1",
     "@mux/mux-player-react": "^3.11.5",
     "@sanity/client": "^7.16.0",
+    "@sanity/vision": "^3.99.0",
     "next": "14.2.35",
     "next-intl": "^4.8.3",
     "next-sanity": "^9.12.3",
     "react": "^18",
     "react-dom": "^18",
-    "resend": "^6.9.3"
+    "resend": "^6.9.3",
+    "sanity": "^3.99.0",
+    "styled-components": "^6.3.11"
   },
   "devDependencies": {
     "@types/node": "^20.19.37",
