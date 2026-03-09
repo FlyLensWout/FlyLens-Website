@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="nl">
-      <body className={`${inter.className} bg-white text-primary min-h-screen`}>
+      <body className={`${inter.className} bg-white text-primary min-h-screen flex flex-col`}>
         {children}
       </body>
     </html>

@@ -29,7 +29,7 @@ export default function Navbar() {
               alt="Flylens"
               width={240}
               height={96}
-              className="h-24 w-auto"
+              className="h-12 w-auto"
             />
           </Link>
 
