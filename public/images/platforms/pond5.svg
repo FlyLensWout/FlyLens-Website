@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="40" viewBox="0 0 180 40">
+  <rect x="0" y="4" width="32" height="32" rx="6" fill="#1A1A2E"/>
+  <circle cx="16" cy="20" r="8" fill="none" stroke="#00B4D8" stroke-width="2.5"/>
+  <polygon points="13,16 13,24 21,20" fill="#00B4D8"/>
+  <text x="40" y="27" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="600" fill="#02172D">Pond5</text>
+</svg>

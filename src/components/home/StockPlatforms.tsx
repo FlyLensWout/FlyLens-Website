@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import FadeIn from "@/components/animations/FadeIn";
 import StaggerChildren, { StaggerItem } from "@/components/animations/StaggerChildren";
 
@@ -6,18 +7,22 @@ const platforms = [
   {
     name: "Shutterstock",
     url: "https://submit.shutterstock.com/nl/FlyLens",
+    logo: "/images/platforms/shutterstock.svg",
   },
   {
     name: "Adobe Stock",
     url: "https://stock.adobe.com/contributor/211750229/FlyLens",
+    logo: "/images/platforms/adobe-stock.svg",
   },
   {
     name: "Pond5",
     url: "https://www.pond5.com/nl/artist/flylensw180",
+    logo: "/images/platforms/pond5.svg",
   },
   {
     name: "Dreamstime",
     url: "https://nl.dreamstime.com/flylensw_info",
+    logo: "/images/platforms/dreamstime.svg",
   },
 ];
 
@@ -46,9 +51,13 @@ export default function StockPlatforms() {
                 rel="noopener noreferrer"
                 className="hover-lift bg-white rounded-xl p-6 flex flex-col items-center justify-center gap-4 shadow-sm hover:shadow-md transition-shadow border border-gray-200"
               >
-                <h3 className="text-lg font-semibold text-primary">
-                  {platform.name}
-                </h3>
+                <Image
+                  src={platform.logo}
+                  alt={platform.name}
+                  width={180}
+                  height={40}
+                  className="h-10 w-auto"
+                />
                 <span className="text-sm font-medium text-primary/60">
                   &rarr;
                 </span>
