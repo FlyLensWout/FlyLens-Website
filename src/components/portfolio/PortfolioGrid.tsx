@@ -1,4 +1,7 @@
+"use client";
+
 import PortfolioCard from "./PortfolioCard";
+import StaggerChildren, { StaggerItem } from "@/components/animations/StaggerChildren";
 
 interface PortfolioItem {
   _id: string;
@@ -25,18 +28,19 @@ export default function PortfolioGrid({ items, noVideosText }: PortfolioGridProp
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {items.map((item) => (
-        <PortfolioCard
-          key={item._id}
-          title={item.title}
-          description={item.description}
-          playbackId={item.muxPlaybackId}
-          token={item.token}
-          thumbnailUrl={item.thumbnailUrl}
-          tags={item.tags}
-        />
+        <StaggerItem key={item._id}>
+          <PortfolioCard
+            title={item.title}
+            description={item.description}
+            playbackId={item.muxPlaybackId}
+            token={item.token}
+            thumbnailUrl={item.thumbnailUrl}
+            tags={item.tags}
+          />
+        </StaggerItem>
       ))}
-    </div>
+    </StaggerChildren>
   );
 }

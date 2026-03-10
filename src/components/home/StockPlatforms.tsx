@@ -1,4 +1,6 @@
 import { useTranslations } from "next-intl";
+import FadeIn from "@/components/animations/FadeIn";
+import StaggerChildren, { StaggerItem } from "@/components/animations/StaggerChildren";
 
 const platforms = [
   {
@@ -25,30 +27,35 @@ export default function StockPlatforms() {
   return (
     <section className="py-20 px-4 bg-gray-50">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
-          {t("stockPlatforms")}
-        </h2>
-        <p className="text-primary/60 mb-12 max-w-xl mx-auto text-center">
-          {t("stockSubtitle")}
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <FadeIn>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
+            {t("stockPlatforms")}
+          </h2>
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <p className="text-primary/60 mb-12 max-w-xl mx-auto text-center">
+            {t("stockSubtitle")}
+          </p>
+        </FadeIn>
+        <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {platforms.map((platform) => (
-            <a
-              key={platform.name}
-              href={platform.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white rounded-xl p-6 flex flex-col items-center justify-center gap-4 shadow-sm hover:shadow-md transition-shadow border border-gray-200"
-            >
-              <h3 className="text-lg font-semibold text-primary">
-                {platform.name}
-              </h3>
-              <span className="text-sm font-medium text-primary/60">
-                &rarr;
-              </span>
-            </a>
+            <StaggerItem key={platform.name}>
+              <a
+                href={platform.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover-lift bg-white rounded-xl p-6 flex flex-col items-center justify-center gap-4 shadow-sm hover:shadow-md transition-shadow border border-gray-200"
+              >
+                <h3 className="text-lg font-semibold text-primary">
+                  {platform.name}
+                </h3>
+                <span className="text-sm font-medium text-primary/60">
+                  &rarr;
+                </span>
+              </a>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerChildren>
       </div>
     </section>
   );

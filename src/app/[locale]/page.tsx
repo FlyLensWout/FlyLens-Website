@@ -2,6 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import HeroSection from "@/components/home/HeroSection";
 import StockPlatforms from "@/components/home/StockPlatforms";
 import QuickLinks from "@/components/home/QuickLinks";
+import PageTransition from "@/components/animations/PageTransition";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -17,10 +18,12 @@ export default function HomePage({
   setRequestLocale(params.locale);
 
   return (
-    <>
-      <HeroSection />
-      <StockPlatforms />
-      <QuickLinks />
-    </>
+    <PageTransition>
+      <div>
+        <HeroSection />
+        <StockPlatforms />
+        <QuickLinks />
+      </div>
+    </PageTransition>
   );
 }

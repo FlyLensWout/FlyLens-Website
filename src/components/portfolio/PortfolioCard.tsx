@@ -24,7 +24,7 @@ export default function PortfolioCard({
   const [playing, setPlaying] = useState(false);
 
   return (
-    <div className="group rounded-xl overflow-hidden border border-gray-200 bg-white hover:border-accent shadow-sm hover:shadow-md transition-all">
+    <div className="hover-lift group rounded-xl overflow-hidden border border-gray-200 bg-white hover:border-accent shadow-sm hover:shadow-md transition-all">
       {playing ? (
         <ProtectedVideoPlayer
           playbackId={playbackId}
