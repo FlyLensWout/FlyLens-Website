@@ -1,6 +1,13 @@
 "use client";
 
-import MuxPlayer from "@mux/mux-player-react";
+import dynamic from "next/dynamic";
+
+const MuxPlayer = dynamic(() => import("@mux/mux-player-react"), {
+  ssr: false,
+  loading: () => (
+    <div className="aspect-video bg-gray-100 animate-pulse rounded-lg" />
+  ),
+});
 
 interface ProtectedVideoPlayerProps {
   playbackId: string;

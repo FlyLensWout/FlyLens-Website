@@ -5,6 +5,8 @@ import Image from "next/image";
 import ProtectedVideoPlayer from "@/components/video/ProtectedVideoPlayer";
 import type { Metadata } from "next";
 
+export const revalidate = 60; // revalidate every 60 seconds
+
 export const metadata: Metadata = {
   title: "Client Work",
 };

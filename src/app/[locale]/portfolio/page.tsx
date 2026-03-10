@@ -4,6 +4,8 @@ import { getSignedPlaybackToken, getSignedThumbnailToken } from "@/lib/mux";
 import PortfolioGrid from "@/components/portfolio/PortfolioGrid";
 import type { Metadata } from "next";
 
+export const revalidate = 60; // revalidate every 60 seconds
+
 export const metadata: Metadata = {
   title: "Portfolio",
   description: "Drone videography portfolio by Flylens",
