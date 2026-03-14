@@ -49,16 +49,19 @@ export default function StockPlatforms() {
                 href={platform.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover-lift bg-white rounded-xl p-6 flex flex-col items-center justify-center gap-4 shadow-sm hover:shadow-md transition-shadow border border-gray-200"
+                className="hover-lift bg-white rounded-xl p-6 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-shadow border border-gray-200"
               >
                 <Image
                   src={platform.logo}
                   alt={platform.name}
-                  width={180}
-                  height={40}
-                  className="h-10 w-auto"
+                  width={32}
+                  height={32}
+                  className="h-8 w-8"
                 />
-                <span className="text-sm font-medium text-primary/60">
+                <span className="text-sm font-semibold text-primary">
+                  {platform.name}
+                </span>
+                <span className="text-sm text-primary/60">
                   &rarr;
                 </span>
               </a>
