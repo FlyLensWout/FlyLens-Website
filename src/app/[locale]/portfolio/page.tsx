@@ -2,8 +2,9 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { sanityClient } from "@/lib/sanity/client";
 import { getSignedPlaybackToken, getSignedThumbnailToken } from "@/lib/mux";
 import PortfolioGrid from "@/components/portfolio/PortfolioGrid";
-import PageTransition from "@/components/animations/PageTransition";
-import FadeIn from "@/components/animations/FadeIn";
+import dynamic from "next/dynamic";
+const PageTransition = dynamic(() => import("@/components/animations/PageTransition"));
+const FadeIn = dynamic(() => import("@/components/animations/FadeIn"), { ssr: false });
 import type { Metadata } from "next";
 
 export const revalidate = 60; // revalidate every 60 seconds
@@ -33,11 +34,17 @@ async function getPortfolioItems(locale: string) {
   );
 
   const itemsWithTokens = await Promise.all(
-    items.map(async (item) => ({
-      ...item,
-      token: await getSignedPlaybackToken(item.muxPlaybackId),
-      thumbnailUrl: `https://image.mux.com/${item.muxPlaybackId}/thumbnail.webp?token=${await getSignedThumbnailToken(item.muxPlaybackId)}`,
-    }))
+    items.map(async (item) => {
+      const [token, thumbnailToken] = await Promise.all([
+        getSignedPlaybackToken(item.muxPlaybackId),
+        getSignedThumbnailToken(item.muxPlaybackId),
+      ]);
+      return {
+        ...item,
+        token,
+        thumbnailUrl: `https://image.mux.com/${item.muxPlaybackId}/thumbnail.webp?token=${thumbnailToken}`,
+      };
+    })
   );
 
   return itemsWithTokens;
@@ -55,8 +62,8 @@ export default async function PortfolioPage({
   let items: Awaited<ReturnType<typeof getPortfolioItems>> = [];
   try {
     items = await getPortfolioItems(locale);
-  } catch {
-    // Sanity not configured yet - show empty state
+  } catch (error) {
+    console.error("Failed to fetch portfolio items:", error);
   }
 
   return (

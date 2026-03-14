@@ -33,8 +33,10 @@ export default function PortfolioCard({
           poster={thumbnailUrl}
         />
       ) : (
-        <div
-          className="relative aspect-video cursor-pointer"
+        <button
+          type="button"
+          className="relative aspect-video cursor-pointer w-full"
+          aria-label={`Play video: ${title}`}
           onClick={() => setPlaying(true)}
         >
           <Image
@@ -51,7 +53,7 @@ export default function PortfolioCard({
               </svg>
             </div>
           </div>
-        </div>
+        </button>
       )}
       <div className="p-4">
         <h3 className="font-semibold text-primary">{title}</h3>

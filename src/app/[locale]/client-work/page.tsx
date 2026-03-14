@@ -3,8 +3,9 @@ import { sanityClient } from "@/lib/sanity/client";
 import { getSignedPlaybackToken, getSignedThumbnailToken } from "@/lib/mux";
 import Image from "next/image";
 import ProtectedVideoPlayer from "@/components/video/ProtectedVideoPlayer";
-import PageTransition from "@/components/animations/PageTransition";
-import FadeIn from "@/components/animations/FadeIn";
+import dynamic from "next/dynamic";
+const PageTransition = dynamic(() => import("@/components/animations/PageTransition"));
+const FadeIn = dynamic(() => import("@/components/animations/FadeIn"), { ssr: false });
 import type { Metadata } from "next";
 
 export const revalidate = 60; // revalidate every 60 seconds
@@ -37,15 +38,20 @@ async function getClientWorkItems(locale: string) {
   );
 
   const itemsWithTokens = await Promise.all(
-    items.map(async (item) => ({
-      ...item,
-      token: item.muxPlaybackId
-        ? await getSignedPlaybackToken(item.muxPlaybackId)
-        : null,
-      thumbnailUrl: item.muxPlaybackId
-        ? `https://image.mux.com/${item.muxPlaybackId}/thumbnail.webp?token=${await getSignedThumbnailToken(item.muxPlaybackId)}`
-        : null,
-    }))
+    items.map(async (item) => {
+      if (!item.muxPlaybackId) {
+        return { ...item, token: null, thumbnailUrl: null };
+      }
+      const [token, thumbnailToken] = await Promise.all([
+        getSignedPlaybackToken(item.muxPlaybackId),
+        getSignedThumbnailToken(item.muxPlaybackId),
+      ]);
+      return {
+        ...item,
+        token,
+        thumbnailUrl: `https://image.mux.com/${item.muxPlaybackId}/thumbnail.webp?token=${thumbnailToken}`,
+      };
+    })
   );
 
   return itemsWithTokens;
@@ -63,8 +69,8 @@ export default async function ClientWorkPage({
   let items: Awaited<ReturnType<typeof getClientWorkItems>> = [];
   try {
     items = await getClientWorkItems(locale);
-  } catch {
-    // Sanity not configured yet
+  } catch (error) {
+    console.error("Failed to fetch client work items:", error);
   }
 
   if (items.length === 0) {

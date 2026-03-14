@@ -4,7 +4,8 @@ import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import LanguageSwitcher from "./LanguageSwitcher";
+import dynamic from "next/dynamic";
+const LanguageSwitcher = dynamic(() => import("./LanguageSwitcher"), { ssr: false });
 
 export default function Navbar() {
   const t = useTranslations("nav");
@@ -29,6 +30,7 @@ export default function Navbar() {
               alt="Flylens"
               width={240}
               height={96}
+              quality={85}
               className="h-12 w-auto"
             />
           </Link>

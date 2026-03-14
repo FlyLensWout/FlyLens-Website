@@ -1,6 +1,7 @@
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
-import FadeIn from "@/components/animations/FadeIn";
+import dynamic from "next/dynamic";
+const FadeIn = dynamic(() => import("@/components/animations/FadeIn"), { ssr: false });
 
 export default function QuickLinks() {
   const t = useTranslations("home");

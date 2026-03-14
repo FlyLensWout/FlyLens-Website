@@ -20,8 +20,7 @@
     "react": "^18",
     "react-dom": "^18",
     "resend": "^6.9.3",
-    "sanity": "^3.99.0",
-    "styled-components": "^6.3.11"
+    "sanity": "^3.99.0"
   },
   "devDependencies": {
     "@types/node": "^20.19.37",

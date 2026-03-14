@@ -31,7 +31,8 @@ export default function ContactForm() {
       } else {
         setStatus("error");
       }
-    } catch {
+    } catch (error) {
+      console.error("Failed to send contact form:", error);
       setStatus("error");
     }
   }
@@ -81,12 +82,14 @@ export default function ContactForm() {
       >
         {status === "loading" ? "..." : t("send")}
       </button>
-      {status === "success" && (
-        <p className="text-green-400 text-center">{t("success")}</p>
-      )}
-      {status === "error" && (
-        <p className="text-red-400 text-center">{t("error")}</p>
-      )}
+      <div role="status" aria-live="polite">
+        {status === "success" && (
+          <p className="text-green-400 text-center">{t("success")}</p>
+        )}
+        {status === "error" && (
+          <p className="text-red-400 text-center">{t("error")}</p>
+        )}
+      </div>
     </form>
   );
 }

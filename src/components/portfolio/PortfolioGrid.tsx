@@ -1,7 +1,9 @@
 "use client";
 
 import PortfolioCard from "./PortfolioCard";
-import StaggerChildren, { StaggerItem } from "@/components/animations/StaggerChildren";
+import dynamic from "next/dynamic";
+const StaggerChildren = dynamic(() => import("@/components/animations/StaggerChildren"), { ssr: false });
+const StaggerItem = dynamic(() => import("@/components/animations/StaggerChildren").then(mod => mod.StaggerItem), { ssr: false });
 
 interface PortfolioItem {
   _id: string;

@@ -1,7 +1,8 @@
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
-import FadeIn from "@/components/animations/FadeIn";
+import dynamic from "next/dynamic";
+const FadeIn = dynamic(() => import("@/components/animations/FadeIn"), { ssr: false });
 
 export default function HeroSection() {
   const t = useTranslations("home");
@@ -14,6 +15,8 @@ export default function HeroSection() {
         src="/images/hero.jpg"
         alt=""
         fill
+        sizes="100vw"
+        quality={85}
         className="object-cover"
         priority
       />

@@ -1,7 +1,9 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import FadeIn from "@/components/animations/FadeIn";
-import StaggerChildren, { StaggerItem } from "@/components/animations/StaggerChildren";
+import dynamic from "next/dynamic";
+const FadeIn = dynamic(() => import("@/components/animations/FadeIn"), { ssr: false });
+const StaggerChildren = dynamic(() => import("@/components/animations/StaggerChildren"), { ssr: false });
+const StaggerItem = dynamic(() => import("@/components/animations/StaggerChildren").then(mod => mod.StaggerItem), { ssr: false });
 
 const platforms = [
   {
