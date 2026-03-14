@@ -11,6 +11,34 @@
     "heroTitle1": "Luchtperspectieven,",
     "heroTitle2": "Adembenemende Beelden",
     "heroSubtitle": "Professionele drone stock videografie",
+    "whatWeDeliver": {
+      "title": "Wat Wij Leveren",
+      "subtitle": "Professionele luchtopnames en stock footage klaar voor elk platform",
+      "stockVideos": {
+        "title": "Hoogwaardige Stock Video's",
+        "description": "Professioneel gefilmd beeldmateriaal klaar voor licentie en commercieel gebruik"
+      },
+      "droneFootage": {
+        "title": "Drone & Luchtfotografie",
+        "description": "Adembenemende luchtperspectieven vastgelegd met professionele apparatuur"
+      },
+      "resolution4k": {
+        "title": "4K+ Resolutie",
+        "description": "Haarscherpe beelden in 4K en hoger voor elk schermformaat"
+      },
+      "socialMedia": {
+        "title": "Social Media Ready",
+        "description": "Verticale en horizontale formaten geoptimaliseerd om direct te posten"
+      },
+      "stockPlatforms": {
+        "title": "Grote Stock Platforms",
+        "description": "Beschikbaar op Shutterstock, Adobe Stock, Pond5 en meer"
+      },
+      "customWork": {
+        "title": "Op Maat Gemaakt",
+        "description": "Videoproductie op maat, afgestemd op uw specifieke visie en behoeften"
+      }
+    },
     "stockPlatforms": "Bekijk onze video's op",
     "stockSubtitle": "Bekijk en koop onze drone stock video's op deze platformen.",
     "viewPortfolio": "Bekijk portfolio",

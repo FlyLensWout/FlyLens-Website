@@ -11,6 +11,34 @@
     "heroTitle1": "Aerial Perspectives,",
     "heroTitle2": "Stunning Footage",
     "heroSubtitle": "Professional drone stock videography",
+    "whatWeDeliver": {
+      "title": "What We Deliver",
+      "subtitle": "Professional aerial and stock footage ready for any platform",
+      "stockVideos": {
+        "title": "High Quality Stock Videos",
+        "description": "Professionally shot footage ready for licensing and commercial use"
+      },
+      "droneFootage": {
+        "title": "Drone & Aerial Videography",
+        "description": "Stunning aerial perspectives captured with professional-grade equipment"
+      },
+      "resolution4k": {
+        "title": "4K+ Resolution",
+        "description": "Crystal clear footage in 4K and higher for any screen size"
+      },
+      "socialMedia": {
+        "title": "Social Media Ready",
+        "description": "Vertical and horizontal formats optimized for instant posting"
+      },
+      "stockPlatforms": {
+        "title": "Major Stock Platforms",
+        "description": "Available on Shutterstock, Adobe Stock, Pond5, and more"
+      },
+      "customWork": {
+        "title": "Custom Client Work",
+        "description": "Tailored video production to match your specific vision and needs"
+      }
+    },
     "stockPlatforms": "Watch our videos on",
     "stockSubtitle": "Browse and purchase our drone stock videos on these platforms.",
     "viewPortfolio": "View portfolio",
