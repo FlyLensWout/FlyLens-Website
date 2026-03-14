@@ -5,40 +5,40 @@ const StaggerChildren = dynamic(() => import("@/components/animations/StaggerChi
 const StaggerItem = dynamic(() => import("@/components/animations/StaggerChildren").then(mod => mod.StaggerItem), { ssr: true });
 
 const deliverables = [
-  { key: "stockVideos", icon: "🎬" },
-  { key: "droneFootage", icon: "🚁" },
-  { key: "resolution4k", icon: "📺" },
-  { key: "socialMedia", icon: "📱" },
-  { key: "stockPlatforms", icon: "🌐" },
-  { key: "customWork", icon: "🎯" },
+  "stockVideos",
+  "droneFootage",
+  "resolution4k",
+  "socialMedia",
+  "stockPlatforms",
+  "customWork",
 ];
 
 export default function WhatWeDeliver() {
   const t = useTranslations("home.whatWeDeliver");
 
   return (
-    <section className="py-20 px-4 bg-white">
+    <section className="py-20 md:py-28 px-4 bg-primary">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
             {t("title")}
           </h2>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <p className="text-primary/60 mb-12 max-w-xl mx-auto text-center">
+          <p className="text-gray-400 mb-14 max-w-xl">
             {t("subtitle")}
           </p>
         </FadeIn>
-        <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {deliverables.map((item) => (
-            <StaggerItem key={item.key}>
-              <div className="hover-lift bg-gray-50 rounded-xl p-6 flex flex-col items-center text-center gap-3 shadow-sm hover:shadow-md transition-shadow border border-gray-200">
-                <span className="text-3xl">{item.icon}</span>
-                <h3 className="text-sm font-semibold text-primary">
-                  {t(`${item.key}.title`)}
+        <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+          {deliverables.map((key) => (
+            <StaggerItem key={key}>
+              <div className="group">
+                <div className="w-8 h-[2px] bg-accent mb-4 transition-all group-hover:w-12" />
+                <h3 className="text-sm font-semibold text-white mb-2">
+                  {t(`${key}.title`)}
                 </h3>
-                <p className="text-sm text-primary/60">
-                  {t(`${item.key}.description`)}
+                <p className="text-sm text-gray-400 leading-relaxed">
+                  {t(`${key}.description`)}
                 </p>
               </div>
             </StaggerItem>

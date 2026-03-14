@@ -16,11 +16,11 @@ export default function HeroSection() {
         alt=""
         fill
         sizes="100vw"
-        quality={85}
+        quality={75}
         className="object-cover"
         priority
       />
-      <div className="absolute inset-0 bg-primary/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/40 to-transparent" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
