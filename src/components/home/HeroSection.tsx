@@ -2,7 +2,7 @@ import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-const FadeIn = dynamic(() => import("@/components/animations/FadeIn"), { ssr: false });
+const FadeIn = dynamic(() => import("@/components/animations/FadeIn"), { ssr: true });
 
 export default function HeroSection() {
   const t = useTranslations("home");

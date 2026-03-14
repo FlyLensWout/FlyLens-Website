@@ -4,7 +4,7 @@ import { getSignedPlaybackToken, getSignedThumbnailToken } from "@/lib/mux";
 import PortfolioGrid from "@/components/portfolio/PortfolioGrid";
 import dynamic from "next/dynamic";
 const PageTransition = dynamic(() => import("@/components/animations/PageTransition"));
-const FadeIn = dynamic(() => import("@/components/animations/FadeIn"), { ssr: false });
+const FadeIn = dynamic(() => import("@/components/animations/FadeIn"), { ssr: true });
 import type { Metadata } from "next";
 
 export const revalidate = 60; // revalidate every 60 seconds

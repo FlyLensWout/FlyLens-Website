@@ -5,7 +5,7 @@ import Image from "next/image";
 import ProtectedVideoPlayer from "@/components/video/ProtectedVideoPlayer";
 import dynamic from "next/dynamic";
 const PageTransition = dynamic(() => import("@/components/animations/PageTransition"));
-const FadeIn = dynamic(() => import("@/components/animations/FadeIn"), { ssr: false });
+const FadeIn = dynamic(() => import("@/components/animations/FadeIn"), { ssr: true });
 import type { Metadata } from "next";
 
 export const revalidate = 60; // revalidate every 60 seconds
