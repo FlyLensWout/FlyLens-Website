@@ -60,9 +60,9 @@ async function getClientWorkItems(locale: string) {
 export default async function ClientWorkPage({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = params;
+  const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("clientWork");
 
