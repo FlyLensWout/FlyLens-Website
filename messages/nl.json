@@ -11,6 +11,10 @@
     "heroTitle1": "Luchtperspectieven,",
     "heroTitle2": "Adembenemende Beelden",
     "heroSubtitle": "Professionele drone stock videografie",
+    "intro": {
+      "paragraph1": "Dronebeelden tonen een locatie op een manier die met traditionele foto's of video moeilijk te bereiken is. Vanuit de lucht ontstaat een volledig nieuw perspectief dat meteen een sterke visuele indruk maakt.",
+      "paragraph2": "Met FlyLens krijg je hoogwaardige 4K dronebeelden die zorgvuldig worden opgenomen en subtiel afgewerkt voor een professionele uitstraling. De clips zijn kort, krachtig en direct klaar voor gebruik op social media, websites of marketingcampagnes."
+    },
     "whatWeDeliver": {
       "title": "Wat Wij Leveren",
       "subtitle": "Professionele luchtopnames en stock footage klaar voor elk platform",
@@ -62,7 +66,10 @@
   },
   "about": {
     "title": "Over Flylens",
-    "subtitle": "De piloot achter de lens"
+    "subtitle": "De piloot achter de lens",
+    "bio1": "Mijn naam is Wout Wybo, oprichter van FlyLens en gepassioneerd door visuele storytelling vanuit de lucht. Met een achtergrond in beeld en technologie combineer ik creativiteit met precisie om locaties op een unieke manier vast te leggen.",
+    "bio2": "Vanuit Knokke-Heist werk ik met dronebeelden om bedrijven, gebouwen en omgevingen vanuit een nieuw perspectief te tonen. Door vloeiende 4K drone shots ontstaat een visuele indruk die met traditionele fotografie of video moeilijk te bereiken is.",
+    "bio3": "Mijn focus ligt op korte, hoogwaardige droneclips die direct bruikbaar zijn voor social media, websites en marketing. Zo krijgen bedrijven professionele beelden die hun locatie op een sterke en moderne manier presenteren."
   },
   "contact": {
     "title": "Contact",
@@ -70,7 +77,8 @@
     "name": "Naam",
     "email": "E-mail",
     "message": "Bericht",
-    "description": "Heeft u een vraag over onze beelden of bent u geïnteresseerd in een project op maat? We horen graag van u.",
+    "description": "Interesse in professionele dronebeelden voor jouw bedrijf of locatie? FlyLens helpt bedrijven hun omgeving op een unieke en visueel krachtige manier in beeld te brengen.",
+    "description2": "Neem gerust contact op om jouw project of locatie te bespreken. Samen bekijken we hoe dronebeelden jouw bedrijf het best kunnen versterken.",
     "send": "Verstuur",
     "success": "Bericht succesvol verstuurd!",
     "error": "Er is iets misgegaan. Probeer het later opnieuw."

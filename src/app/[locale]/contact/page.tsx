@@ -28,8 +28,11 @@ export default async function ContactPage({
               <div>
                 <h1 className="text-3xl sm:text-4xl font-bold mb-4">{t("title")}</h1>
                 <p className="text-primary/60 text-lg mb-8">{t("subtitle")}</p>
-                <p className="text-primary/70 leading-relaxed mb-10">
+                <p className="text-primary/70 leading-relaxed mb-4">
                   {t("description")}
+                </p>
+                <p className="text-primary/70 leading-relaxed mb-10">
+                  {t("description2")}
                 </p>
                 <div className="space-y-6">
                   {/* Email */}

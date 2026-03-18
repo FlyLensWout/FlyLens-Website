@@ -11,6 +11,10 @@
     "heroTitle1": "Aerial Perspectives,",
     "heroTitle2": "Stunning Footage",
     "heroSubtitle": "Professional drone stock videography",
+    "intro": {
+      "paragraph1": "Drone footage showcases a location in a way that is difficult to achieve with traditional photos or video. From the air, an entirely new perspective emerges that instantly creates a powerful visual impression.",
+      "paragraph2": "With FlyLens, you get high-quality 4K drone footage that is carefully captured and subtly refined for a professional look. The clips are short, impactful, and ready to use on social media, websites, or marketing campaigns."
+    },
     "whatWeDeliver": {
       "title": "What We Deliver",
       "subtitle": "Professional aerial and stock footage ready for any platform",
@@ -62,7 +66,10 @@
   },
   "about": {
     "title": "About Flylens",
-    "subtitle": "The pilot behind the lens"
+    "subtitle": "The pilot behind the lens",
+    "bio1": "My name is Wout Wybo, founder of FlyLens and passionate about visual storytelling from the air. With a background in imaging and technology, I combine creativity with precision to capture locations in a unique way.",
+    "bio2": "Based in Knokke-Heist, I work with drone footage to showcase businesses, buildings, and environments from a new perspective. Through smooth 4K drone shots, a visual impression emerges that is difficult to achieve with traditional photography or video.",
+    "bio3": "My focus is on short, high-quality drone clips that are ready to use for social media, websites, and marketing. This way, businesses receive professional footage that presents their location in a strong and modern way."
   },
   "contact": {
     "title": "Contact",
@@ -70,7 +77,8 @@
     "name": "Name",
     "email": "Email",
     "message": "Message",
-    "description": "Have a question about our footage or interested in a custom project? We'd love to hear from you.",
+    "description": "Interested in professional drone footage for your business or location? FlyLens helps businesses showcase their environment in a unique and visually powerful way.",
+    "description2": "Feel free to get in touch to discuss your project or location. Together, we'll explore how drone footage can best strengthen your business.",
     "send": "Send",
     "success": "Message sent successfully!",
     "error": "Something went wrong. Please try again later."

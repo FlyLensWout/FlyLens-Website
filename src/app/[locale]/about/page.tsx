@@ -49,15 +49,13 @@ export default async function AboutPage({
                 <p className="text-primary/60 text-lg mb-8">{t("subtitle")}</p>
                 <div className="space-y-4">
                   <p className="text-primary/70 leading-relaxed">
-                    Flylens is a professional drone videography company specializing in
-                    capturing stunning aerial footage of landscapes, nature, and
-                    architecture. Our footage is available on major stock platforms
-                    worldwide.
+                    {t("bio1")}
                   </p>
                   <p className="text-primary/70 leading-relaxed">
-                    With a passion for aerial cinematography and an eye for
-                    composition, we deliver high-quality 4K footage that brings a new
-                    perspective to every scene.
+                    {t("bio2")}
+                  </p>
+                  <p className="text-primary/70 leading-relaxed">
+                    {t("bio3")}
                   </p>
                 </div>
               </div>
