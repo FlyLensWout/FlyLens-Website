@@ -4,7 +4,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 const FadeIn = dynamic(() => import("@/components/animations/FadeIn"), { ssr: true });
 
-export default function HeroSection() {
+export default function HeroSection({ heroImage }: { heroImage?: string }) {
   const t = useTranslations("home");
   const locale = useLocale();
 
@@ -12,7 +12,7 @@ export default function HeroSection() {
     <section className="relative text-white py-32 md:py-48 overflow-hidden">
       {/* Background image */}
       <Image
-        src="/images/hero.jpg"
+        src={heroImage || "/images/hero.jpg"}
         alt=""
         fill
         sizes="100vw"
