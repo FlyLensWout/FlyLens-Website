@@ -1,4 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 const PageTransition = dynamic(() => import("@/components/animations/PageTransition"));
 const FadeIn = dynamic(() => import("@/components/animations/FadeIn"), { ssr: true });
@@ -23,22 +24,17 @@ export default async function AboutPage({
       <div className="py-16 md:py-24 px-4">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            {/* Photo placeholder */}
+            {/* Photo */}
             <FadeIn direction="right">
-              <div className="aspect-[4/5] rounded-2xl bg-gray-50 flex items-center justify-center">
-                <svg
-                  className="w-24 h-24 text-primary/20"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1}
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
-                </svg>
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden">
+                <Image
+                  src="/images/wout-wybo.jpg"
+                  alt="Wout Wybo - FlyLens"
+                  width={640}
+                  height={800}
+                  className="w-full h-full object-cover"
+                  priority
+                />
               </div>
             </FadeIn>
 
