@@ -21,9 +21,18 @@ interface SanityPortfolioItem {
   tags: string[];
 }
 
+function shuffle<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 async function getPortfolioItems(locale: string) {
   const items: SanityPortfolioItem[] = await sanityClient.fetch(
-    `*[_type == "portfolio"] | order(order asc) {
+    `*[_type == "portfolio"] {
       _id,
       "title": title.${locale},
       "description": description.${locale},
@@ -32,7 +41,7 @@ async function getPortfolioItems(locale: string) {
     }`
   );
 
-  return items;
+  return shuffle(items);
 }
 
 export default async function PortfolioPage({
