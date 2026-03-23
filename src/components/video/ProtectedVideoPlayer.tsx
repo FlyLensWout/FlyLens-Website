@@ -35,7 +35,7 @@ export default function VideoPlayer({
     >
       <video
         ref={videoRef}
-        src={`/api/video?file=${encodeURIComponent(videoFileName)}`}
+        src={`${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${encodeURIComponent(videoFileName)}`}
         title={title}
         controls
         controlsList="nodownload noplaybackrate"

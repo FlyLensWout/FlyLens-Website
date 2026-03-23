@@ -52,7 +52,7 @@ export default function PortfolioCard({
         >
           <video
             ref={videoRef}
-            src={`/api/video?file=${encodeURIComponent(videoFileName)}#t=0.5`}
+            src={`${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${encodeURIComponent(videoFileName)}#t=0.5`}
             muted
             playsInline
             preload="metadata"
