@@ -9,9 +9,7 @@ interface PortfolioItem {
   _id: string;
   title: string;
   description: string;
-  muxPlaybackId: string;
-  token: string;
-  thumbnailUrl: string;
+  videoFileName: string;
   tags: string[];
 }
 
@@ -36,9 +34,7 @@ export default function PortfolioGrid({ items, noVideosText }: PortfolioGridProp
           <PortfolioCard
             title={item.title}
             description={item.description}
-            playbackId={item.muxPlaybackId}
-            token={item.token}
-            thumbnailUrl={item.thumbnailUrl}
+            videoFileName={item.videoFileName}
             tags={item.tags}
           />
         </StaggerItem>

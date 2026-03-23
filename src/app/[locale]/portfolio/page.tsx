@@ -1,6 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { sanityClient } from "@/lib/sanity/client";
-import { getSignedPlaybackToken, getSignedThumbnailToken } from "@/lib/mux";
 import PortfolioGrid from "@/components/portfolio/PortfolioGrid";
 import dynamic from "next/dynamic";
 const PageTransition = dynamic(() => import("@/components/animations/PageTransition"));
@@ -18,7 +17,7 @@ interface SanityPortfolioItem {
   _id: string;
   title: string;
   description: string;
-  muxPlaybackId: string;
+  videoFileName: string;
   tags: string[];
 }
 
@@ -28,26 +27,12 @@ async function getPortfolioItems(locale: string) {
       _id,
       "title": title.${locale},
       "description": description.${locale},
-      muxPlaybackId,
+      videoFileName,
       tags
     }`
   );
 
-  const itemsWithTokens = await Promise.all(
-    items.map(async (item) => {
-      const [token, thumbnailToken] = await Promise.all([
-        getSignedPlaybackToken(item.muxPlaybackId),
-        getSignedThumbnailToken(item.muxPlaybackId),
-      ]);
-      return {
-        ...item,
-        token,
-        thumbnailUrl: `https://image.mux.com/${item.muxPlaybackId}/thumbnail.webp?token=${thumbnailToken}`,
-      };
-    })
-  );
-
-  return itemsWithTokens;
+  return items;
 }
 
 export default async function PortfolioPage({
@@ -59,7 +44,7 @@ export default async function PortfolioPage({
   setRequestLocale(locale);
   const t = await getTranslations("portfolio");
 
-  let items: Awaited<ReturnType<typeof getPortfolioItems>> = [];
+  let items: SanityPortfolioItem[] = [];
   try {
     items = await getPortfolioItems(locale);
   } catch (error) {

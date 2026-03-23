@@ -24,10 +24,10 @@ export const portfolio = defineType({
       ],
     }),
     defineField({
-      name: "muxPlaybackId",
-      title: "Mux Playback ID",
+      name: "videoFileName",
+      title: "Video File Name",
       type: "string",
-      description: "The Mux playback ID for the video preview",
+      description: "The mp4 filename on Cloudflare R2 (e.g. Ramskapelle_1.mp4)",
     }),
     defineField({
       name: "tags",

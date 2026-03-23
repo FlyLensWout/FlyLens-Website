@@ -24,10 +24,10 @@ export const clientWork = defineType({
       ],
     }),
     defineField({
-      name: "muxPlaybackId",
-      title: "Mux Playback ID",
+      name: "videoFileName",
+      title: "Video File Name",
       type: "string",
-      description: "Optional: Mux playback ID for project video",
+      description: "Optional: mp4 filename on Cloudflare R2 (e.g. Ramskapelle_1.mp4)",
     }),
     defineField({
       name: "images",

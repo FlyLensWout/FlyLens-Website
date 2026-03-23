@@ -1,24 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import ProtectedVideoPlayer from "@/components/video/ProtectedVideoPlayer";
-import Image from "next/image";
+import VideoPlayer from "@/components/video/ProtectedVideoPlayer";
 
 interface PortfolioCardProps {
   title: string;
   description: string;
-  playbackId: string;
-  token: string;
-  thumbnailUrl: string;
+  videoFileName: string;
   tags: string[];
 }
 
 export default function PortfolioCard({
   title,
   description,
-  playbackId,
-  token,
-  thumbnailUrl,
+  videoFileName,
   tags,
 }: PortfolioCardProps) {
   const [playing, setPlaying] = useState(false);
@@ -26,24 +21,25 @@ export default function PortfolioCard({
   return (
     <div className="hover-lift group rounded-xl overflow-hidden border border-gray-200 bg-white hover:border-accent shadow-sm hover:shadow-md transition-all">
       {playing ? (
-        <ProtectedVideoPlayer
-          playbackId={playbackId}
-          token={token}
+        <VideoPlayer
+          videoFileName={videoFileName}
           title={title}
-          poster={thumbnailUrl}
         />
       ) : (
         <button
           type="button"
-          className="relative aspect-video cursor-pointer w-full"
+          className="relative aspect-video cursor-pointer w-full bg-black"
           aria-label={`Play video: ${title}`}
           onClick={() => setPlaying(true)}
         >
-          <Image
-            src={thumbnailUrl}
-            alt={title}
-            fill
-            className="object-cover"
+          {/* Thumbnail from proxied video */}
+          <video
+            src={`/api/video?file=${encodeURIComponent(videoFileName)}#t=0.5`}
+            muted
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-cover"
+            onContextMenu={(e) => e.preventDefault()}
           />
           {/* Play button overlay */}
           <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors">

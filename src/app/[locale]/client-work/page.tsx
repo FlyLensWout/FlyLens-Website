@@ -1,8 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { sanityClient } from "@/lib/sanity/client";
-import { getSignedPlaybackToken, getSignedThumbnailToken } from "@/lib/mux";
 import Image from "next/image";
-import ProtectedVideoPlayer from "@/components/video/ProtectedVideoPlayer";
+import VideoPlayer from "@/components/video/ProtectedVideoPlayer";
 import dynamic from "next/dynamic";
 const PageTransition = dynamic(() => import("@/components/animations/PageTransition"));
 const FadeIn = dynamic(() => import("@/components/animations/FadeIn"), { ssr: true });
@@ -18,7 +17,7 @@ interface SanityClientWorkItem {
   _id: string;
   title: string;
   description: string;
-  muxPlaybackId?: string;
+  videoFileName?: string;
   clientName: string;
   date: string;
   images?: string[];
@@ -30,31 +29,14 @@ async function getClientWorkItems(locale: string) {
       _id,
       "title": title.${locale},
       "description": description.${locale},
-      muxPlaybackId,
+      videoFileName,
       clientName,
       date,
       "images": images[].asset->url
     }`
   );
 
-  const itemsWithTokens = await Promise.all(
-    items.map(async (item) => {
-      if (!item.muxPlaybackId) {
-        return { ...item, token: null, thumbnailUrl: null };
-      }
-      const [token, thumbnailToken] = await Promise.all([
-        getSignedPlaybackToken(item.muxPlaybackId),
-        getSignedThumbnailToken(item.muxPlaybackId),
-      ]);
-      return {
-        ...item,
-        token,
-        thumbnailUrl: `https://image.mux.com/${item.muxPlaybackId}/thumbnail.webp?token=${thumbnailToken}`,
-      };
-    })
-  );
-
-  return itemsWithTokens;
+  return items;
 }
 
 export default async function ClientWorkPage({
@@ -66,7 +48,7 @@ export default async function ClientWorkPage({
   setRequestLocale(locale);
   const t = await getTranslations("clientWork");
 
-  let items: Awaited<ReturnType<typeof getClientWorkItems>> = [];
+  let items: SanityClientWorkItem[] = [];
   try {
     items = await getClientWorkItems(locale);
   } catch (error) {
@@ -125,17 +107,15 @@ export default async function ClientWorkPage({
                 <article
                   className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden"
                 >
-                  {item.muxPlaybackId && item.token && (
-                    <ProtectedVideoPlayer
-                      playbackId={item.muxPlaybackId}
-                      token={item.token}
+                  {item.videoFileName && (
+                    <VideoPlayer
+                      videoFileName={item.videoFileName}
                       title={item.title}
-                      poster={item.thumbnailUrl || undefined}
                     />
                   )}
                   {item.images &&
                     item.images.length > 0 &&
-                    !item.muxPlaybackId && (
+                    !item.videoFileName && (
                       <div className="relative aspect-video">
                         <Image
                           src={item.images[0]}
