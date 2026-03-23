@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 
 export default function Error({
   error,
@@ -9,6 +10,8 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const t = useTranslations("error");
+
   useEffect(() => {
     console.error("Page error:", error);
   }, [error]);
@@ -32,16 +35,16 @@ export default function Error({
           </svg>
         </div>
         <h2 className="text-2xl font-bold text-primary mb-2">
-          Something went wrong
+          {t("title")}
         </h2>
         <p className="text-primary/60 mb-6">
-          An unexpected error occurred. Please try again.
+          {t("description")}
         </p>
         <button
           onClick={() => reset()}
           className="btn-press px-6 py-3 bg-accent text-primary font-semibold rounded-lg hover:bg-accent-hover transition-colors"
         >
-          Try again
+          {t("tryAgain")}
         </button>
       </div>
     </div>

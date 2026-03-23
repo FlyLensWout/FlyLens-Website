@@ -51,7 +51,8 @@
     "portfolioCardDesc": "Explore our collection of aerial drone footage.",
     "clientWorkCard": "Client Work",
     "clientWorkCardDesc": "Custom drone videography projects for clients.",
-    "viewClientWork": "View projects"
+    "viewClientWork": "View projects",
+    "heroAlt": "Aerial drone footage by Flylens"
   },
   "portfolio": {
     "title": "Portfolio",
@@ -87,5 +88,10 @@
     "rights": "All rights reserved",
     "stockPlatforms": "Stock platforms",
     "followUs": "Follow us"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. Please try again.",
+    "tryAgain": "Try again"
   }
 }

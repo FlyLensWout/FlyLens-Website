@@ -51,7 +51,8 @@
     "portfolioCardDesc": "Ontdek onze collectie luchtfoto's en drone beelden.",
     "clientWorkCard": "Klantenwerk",
     "clientWorkCardDesc": "Op maat gemaakte drone videografie projecten voor klanten.",
-    "viewClientWork": "Bekijk projecten"
+    "viewClientWork": "Bekijk projecten",
+    "heroAlt": "Luchtopnames door Flylens"
   },
   "portfolio": {
     "title": "Portfolio",
@@ -87,5 +88,10 @@
     "rights": "Alle rechten voorbehouden",
     "stockPlatforms": "Stock platforms",
     "followUs": "Volg ons"
+  },
+  "error": {
+    "title": "Er is iets misgegaan",
+    "description": "Er is een onverwachte fout opgetreden. Probeer het opnieuw.",
+    "tryAgain": "Opnieuw proberen"
   }
 }
