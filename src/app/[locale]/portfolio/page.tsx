@@ -2,7 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { sanityClient } from "@/lib/sanity/client";
 import PortfolioGrid from "@/components/portfolio/PortfolioGrid";
 import dynamic from "next/dynamic";
-const PageTransition = dynamic(() => import("@/components/animations/PageTransition"));
+const PageTransition = dynamic(() => import("@/components/animations/PageTransition"), { ssr: true });
 const FadeIn = dynamic(() => import("@/components/animations/FadeIn"), { ssr: true });
 import type { Metadata } from "next";
 

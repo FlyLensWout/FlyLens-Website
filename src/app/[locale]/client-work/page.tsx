@@ -3,7 +3,7 @@ import { sanityClient } from "@/lib/sanity/client";
 import Image from "next/image";
 import VideoPlayer from "@/components/video/ProtectedVideoPlayer";
 import dynamic from "next/dynamic";
-const PageTransition = dynamic(() => import("@/components/animations/PageTransition"));
+const PageTransition = dynamic(() => import("@/components/animations/PageTransition"), { ssr: true });
 const FadeIn = dynamic(() => import("@/components/animations/FadeIn"), { ssr: true });
 import type { Metadata } from "next";
 

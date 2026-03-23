@@ -31,7 +31,7 @@ export async function GET(request: NextRequest) {
   const responseHeaders = new Headers();
   responseHeaders.set("Content-Type", "video/mp4");
   responseHeaders.set("Accept-Ranges", "bytes");
-  responseHeaders.set("Cache-Control", "private, no-store");
+  responseHeaders.set("Cache-Control", "private, max-age=300");
   responseHeaders.set("Content-Disposition", "inline");
   responseHeaders.set("X-Content-Type-Options", "nosniff");
 

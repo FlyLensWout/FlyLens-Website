@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import VideoPlayer from "@/components/video/ProtectedVideoPlayer";
 
 interface PortfolioCardProps {
@@ -17,6 +17,24 @@ export default function PortfolioCard({
   tags,
 }: PortfolioCardProps) {
   const [playing, setPlaying] = useState(false);
+  const [thumbnailReady, setThumbnailReady] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || playing) return;
+
+    const handleLoaded = () => setThumbnailReady(true);
+    const handleError = () => setThumbnailReady(false);
+
+    video.addEventListener("loadeddata", handleLoaded);
+    video.addEventListener("error", handleError);
+
+    return () => {
+      video.removeEventListener("loadeddata", handleLoaded);
+      video.removeEventListener("error", handleError);
+    };
+  }, [playing]);
 
   return (
     <div className="hover-lift group rounded-xl overflow-hidden border border-gray-200 bg-white hover:border-accent shadow-sm hover:shadow-md transition-all">
@@ -28,19 +46,22 @@ export default function PortfolioCard({
       ) : (
         <button
           type="button"
-          className="relative aspect-video cursor-pointer w-full bg-black"
+          className="relative aspect-video cursor-pointer w-full bg-gray-900"
           aria-label={`Play video: ${title}`}
           onClick={() => setPlaying(true)}
         >
-          {/* Thumbnail from proxied video */}
           <video
+            ref={videoRef}
             src={`/api/video?file=${encodeURIComponent(videoFileName)}#t=0.5`}
             muted
             playsInline
             preload="metadata"
-            className="w-full h-full object-cover"
+            className={`w-full h-full object-cover transition-opacity duration-300 ${thumbnailReady ? "opacity-100" : "opacity-0"}`}
             onContextMenu={(e) => e.preventDefault()}
           />
+          {!thumbnailReady && (
+            <div className="absolute inset-0 bg-gray-800 animate-pulse" />
+          )}
           {/* Play button overlay */}
           <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors">
             <div className="w-16 h-16 rounded-full bg-accent/90 flex items-center justify-center">
