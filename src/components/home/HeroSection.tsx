@@ -1,19 +1,29 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 const FadeIn = dynamic(() => import("@/components/animations/FadeIn"), { ssr: true });
 
-export default function HeroSection({ heroImage }: { heroImage?: string }) {
+const heroImages = Array.from({ length: 13 }, (_, i) => `/images/hero/hero-${i}.jpg`);
+
+export default function HeroSection() {
   const t = useTranslations("home");
   const locale = useLocale();
+
+  const [heroImage, setHeroImage] = useState(heroImages[0]);
+  useEffect(() => {
+    setHeroImage(heroImages[Math.floor(Math.random() * heroImages.length)]);
+  }, []);
 
   return (
     <section className="relative text-white py-32 md:py-48 overflow-hidden">
       {/* Background image */}
       <Image
-        src={heroImage || "/images/hero.jpg"}
-        alt=""
+        src={heroImage}
+        alt={t("heroAlt")}
         fill
         sizes="100vw"
         quality={75}
