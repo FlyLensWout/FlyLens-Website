@@ -1,7 +1,11 @@
 import { createClient } from "@sanity/client";
 
+if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
+  throw new Error("Missing NEXT_PUBLIC_SANITY_PROJECT_ID environment variable");
+}
+
 export const sanityClient = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "placeholder",
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
   apiVersion: "2024-01-01",
   useCdn: true,
