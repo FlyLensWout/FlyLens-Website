@@ -1,8 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import ContactForm from "@/components/contact/ContactForm";
-import dynamic from "next/dynamic";
-const PageTransition = dynamic(() => import("@/components/animations/PageTransition"));
-const FadeIn = dynamic(() => import("@/components/animations/FadeIn"), { ssr: true });
+import PageTransition from "@/components/animations/PageTransition";
+import FadeIn from "@/components/animations/FadeIn";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

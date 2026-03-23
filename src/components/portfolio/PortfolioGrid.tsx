@@ -2,9 +2,8 @@
 
 import { useMemo } from "react";
 import PortfolioCard from "./PortfolioCard";
-import dynamic from "next/dynamic";
-const StaggerChildren = dynamic(() => import("@/components/animations/StaggerChildren"), { ssr: true });
-const StaggerItem = dynamic(() => import("@/components/animations/StaggerChildren").then(mod => mod.StaggerItem), { ssr: true });
+import StaggerChildren from "@/components/animations/StaggerChildren";
+import { StaggerItem } from "@/components/animations/StaggerChildren";
 
 function shuffle<T>(array: T[]): T[] {
   const shuffled = [...array];

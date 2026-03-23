@@ -1,6 +1,5 @@
 import { useTranslations } from "next-intl";
-import dynamic from "next/dynamic";
-const FadeIn = dynamic(() => import("@/components/animations/FadeIn"), { ssr: true });
+import FadeIn from "@/components/animations/FadeIn";
 
 export default function HomeIntro() {
   const t = useTranslations("home.intro");

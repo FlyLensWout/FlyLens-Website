@@ -4,8 +4,7 @@ import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import dynamic from "next/dynamic";
-const LanguageSwitcher = dynamic(() => import("./LanguageSwitcher"));
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
   const t = useTranslations("nav");
