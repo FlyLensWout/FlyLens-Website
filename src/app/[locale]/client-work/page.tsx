@@ -26,13 +26,14 @@ async function getClientWorkItems(locale: string) {
   const items: SanityClientWorkItem[] = await sanityClient.fetch(
     `*[_type == "clientWork"] | order(date desc) {
       _id,
-      "title": title.${locale},
-      "description": description.${locale},
+      "title": title[$locale],
+      "description": description[$locale],
       videoFileName,
       clientName,
       date,
       "images": images[].asset->url
-    }`
+    }`,
+    { locale }
   );
 
   return items;

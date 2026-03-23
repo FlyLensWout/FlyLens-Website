@@ -24,11 +24,12 @@ async function getPortfolioItems(locale: string) {
   const items: SanityPortfolioItem[] = await sanityClient.fetch(
     `*[_type == "portfolio"] {
       _id,
-      "title": title.${locale},
-      "description": description.${locale},
+      "title": title[$locale],
+      "description": description[$locale],
       videoFileName,
       tags
-    }`
+    }`,
+    { locale }
   );
 
   return items;
