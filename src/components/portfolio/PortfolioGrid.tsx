@@ -1,18 +1,8 @@
 "use client";
 
-import { useMemo } from "react";
 import PortfolioCard from "./PortfolioCard";
 import StaggerChildren from "@/components/animations/StaggerChildren";
 import { StaggerItem } from "@/components/animations/StaggerChildren";
-
-function shuffle<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
 
 interface PortfolioItem {
   _id: string;
@@ -28,9 +18,7 @@ interface PortfolioGridProps {
 }
 
 export default function PortfolioGrid({ items, noVideosText }: PortfolioGridProps) {
-  const shuffledItems = useMemo(() => shuffle(items), [items]);
-
-  if (shuffledItems.length === 0) {
+  if (items.length === 0) {
     return (
       <div className="text-center py-20">
         <p className="text-gray-600 text-lg">{noVideosText}</p>
@@ -40,7 +28,7 @@ export default function PortfolioGrid({ items, noVideosText }: PortfolioGridProp
 
   return (
     <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {shuffledItems.map((item) => (
+      {items.map((item) => (
         <StaggerItem key={item._id}>
           <PortfolioCard
             title={item.title}

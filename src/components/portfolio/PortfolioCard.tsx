@@ -19,13 +19,45 @@ export default function PortfolioCard({
   const [playing, setPlaying] = useState(false);
   const [thumbnailReady, setThumbnailReady] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const retryCount = useRef(0);
+
+  // Lazy-load: only set video src when the card scrolls into view
+  useEffect(() => {
+    if (playing) return;
+    const container = containerRef.current;
+    const video = videoRef.current;
+    if (!container || !video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !video.src) {
+          video.src = `${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${encodeURIComponent(videoFileName)}#t=0.5`;
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [playing, videoFileName]);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video || playing) return;
 
     const handleLoaded = () => setThumbnailReady(true);
-    const handleError = () => setThumbnailReady(false);
+    const handleError = () => {
+      if (retryCount.current < 2) {
+        retryCount.current++;
+        setTimeout(() => {
+          if (video) {
+            video.src = `${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${encodeURIComponent(videoFileName)}#t=0.5`;
+            video.load();
+          }
+        }, 1000 * retryCount.current);
+      }
+    };
 
     video.addEventListener("loadeddata", handleLoaded);
     video.addEventListener("error", handleError);
@@ -34,7 +66,7 @@ export default function PortfolioCard({
       video.removeEventListener("loadeddata", handleLoaded);
       video.removeEventListener("error", handleError);
     };
-  }, [playing]);
+  }, [playing, videoFileName]);
 
   return (
     <div className="hover-lift group rounded-xl overflow-hidden border border-gray-200 bg-white hover:border-accent shadow-sm hover:shadow-md transition-all">
@@ -45,6 +77,7 @@ export default function PortfolioCard({
         />
       ) : (
         <button
+          ref={containerRef}
           type="button"
           className="relative aspect-video cursor-pointer w-full bg-gray-900"
           aria-label={`Play video: ${title}`}
@@ -52,7 +85,6 @@ export default function PortfolioCard({
         >
           <video
             ref={videoRef}
-            src={`${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${encodeURIComponent(videoFileName)}#t=0.5`}
             muted
             playsInline
             preload="metadata"
