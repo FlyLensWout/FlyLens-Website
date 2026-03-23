@@ -5,8 +5,43 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_NAME_LENGTH = 200;
 const MAX_MESSAGE_LENGTH = 5000;
 
+// Simple in-memory rate limiting
+const RATE_LIMIT_WINDOW = 60_000; // 1 minute
+const RATE_LIMIT_MAX = 5;
+const ipRequests = new Map<string, { count: number; resetAt: number }>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const record = ipRequests.get(ip);
+
+  if (!record || now > record.resetAt) {
+    ipRequests.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW });
+    return false;
+  }
+
+  record.count++;
+  return record.count > RATE_LIMIT_MAX;
+}
+
 export async function POST(request: NextRequest) {
-  const { name, email, message } = await request.json();
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429 }
+    );
+  }
+
+  let name: unknown, email: unknown, message: unknown;
+  try {
+    const body = await request.json();
+    name = body.name;
+    email = body.email;
+    message = body.message;
+  } catch {
+    return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
+  }
 
   if (!name || !email || !message) {
     return NextResponse.json({ error: "All fields are required" }, { status: 400 });
