@@ -26,7 +26,7 @@ export default function QuickLinks() {
           </FadeIn>
           <FadeIn direction="left" delay={0.15}>
             <Link
-              href={`/${locale}/client-work`}
+              href={`/${locale}/contact`}
               className="hover-lift group relative rounded-2xl overflow-hidden bg-primary p-10 md:p-14 flex flex-col justify-end hover:ring-2 hover:ring-accent transition-all block"
             >
               <h3 className="text-2xl font-bold text-white mb-2">{t("clientWorkCard")}</h3>
