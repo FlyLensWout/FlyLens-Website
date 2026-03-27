@@ -3,6 +3,7 @@ import Image from "next/image";
 import PageTransition from "@/components/animations/PageTransition";
 import FadeIn from "@/components/animations/FadeIn";
 import Applications from "@/components/about/Applications";
+import ServiceCards from "@/components/about/ServiceCards";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -61,6 +62,7 @@ export default async function AboutPage({
       </div>
 
       <Applications />
+      <ServiceCards />
     </PageTransition>
   );
 }

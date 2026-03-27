@@ -111,6 +111,16 @@
         "title": "Social Media & Marketing",
         "description": "Korte, krachtige droneclips geoptimaliseerd voor social media en digitale marketingcampagnes."
       }
+    },
+    "services": {
+      "cinematic": {
+        "title": "Cinematic Video's",
+        "description": "Vloeiende, filmische dronebeelden die jouw locatie of project tot leven brengen met professionele kwaliteit en creatieve composities."
+      },
+      "fpv": {
+        "title": "FPV Shots",
+        "description": "Dynamische en meeslepende beelden met FPV drones die door, rond en over locaties vliegen voor een unieke, immersieve ervaring."
+      }
     }
   },
   "contact": {

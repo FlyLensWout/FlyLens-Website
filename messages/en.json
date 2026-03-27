@@ -111,6 +111,16 @@
         "title": "Social Media & Marketing",
         "description": "Short, impactful drone clips optimized for social media and digital marketing campaigns."
       }
+    },
+    "services": {
+      "cinematic": {
+        "title": "Cinematic Videos",
+        "description": "Smooth, cinematic drone footage that brings your location or project to life with professional quality and creative compositions."
+      },
+      "fpv": {
+        "title": "FPV Shots",
+        "description": "Dynamic and immersive footage with FPV drones that fly through, around, and over locations for a unique, immersive experience."
+      }
     }
   },
   "contact": {
