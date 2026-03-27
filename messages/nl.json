@@ -57,7 +57,8 @@
   "portfolio": {
     "title": "Portfolio",
     "subtitle": "Een selectie van onze drone videografie",
-    "noVideos": "Binnenkort meer video's beschikbaar."
+    "noVideos": "Binnenkort meer video's beschikbaar.",
+    "loadMore": "Meer laden"
   },
   "clientWork": {
     "title": "Klantenwerk",

@@ -19,7 +19,7 @@ export default function PortfolioCard({
   const [playing, setPlaying] = useState(false);
   const [thumbnailReady, setThumbnailReady] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLButtonElement>(null);
   const retryCount = useRef(0);
 
   // Lazy-load: only set video src when the card scrolls into view

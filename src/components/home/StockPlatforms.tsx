@@ -7,7 +7,7 @@ import { StaggerItem } from "@/components/animations/StaggerChildren";
 const platforms = [
   {
     name: "Shutterstock",
-    url: "https://submit.shutterstock.com/nl/FlyLens",
+    url: "https://www.shutterstock.com/nl/g/FlyLens/video",
     logo: "/images/platforms/shutterstock.svg",
   },
   {

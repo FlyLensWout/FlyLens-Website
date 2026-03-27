@@ -7,28 +7,34 @@ import Image from "next/image";
 import FadeIn from "@/components/animations/FadeIn";
 
 const heroImages = Array.from({ length: 13 }, (_, i) => `/images/hero/hero-${i}.jpg`);
+const DEFAULT_HERO = heroImages[0];
 
 export default function HeroSection() {
   const t = useTranslations("home");
   const locale = useLocale();
 
-  const [heroImage, setHeroImage] = useState(heroImages[0]);
+  const [heroImage, setHeroImage] = useState(DEFAULT_HERO);
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
     setHeroImage(heroImages[Math.floor(Math.random() * heroImages.length)]);
+    setMounted(true);
   }, []);
 
   return (
     <section className="relative text-white py-32 md:py-48 overflow-hidden">
-      {/* Background image */}
-      <Image
-        src={heroImage}
-        alt={t("heroAlt")}
-        fill
-        sizes="100vw"
-        quality={75}
-        className="object-cover object-[center_40%]"
-        priority
-      />
+      {/* Background image — hidden until client picks random image to avoid hydration flash */}
+      <div className={mounted ? "opacity-100 transition-opacity duration-300" : "opacity-0"}>
+        <Image
+          src={heroImage}
+          alt={t("heroAlt")}
+          fill
+          sizes="100vw"
+          quality={75}
+          className="object-cover object-[center_40%]"
+          priority
+        />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/40 to-transparent" />
 
       {/* Content */}

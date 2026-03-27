@@ -57,7 +57,8 @@
   "portfolio": {
     "title": "Portfolio",
     "subtitle": "A selection of our drone videography",
-    "noVideos": "More videos coming soon."
+    "noVideos": "More videos coming soon.",
+    "loadMore": "Load more"
   },
   "clientWork": {
     "title": "Client Work",
