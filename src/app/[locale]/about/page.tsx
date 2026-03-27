@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import PageTransition from "@/components/animations/PageTransition";
 import FadeIn from "@/components/animations/FadeIn";
+import Applications from "@/components/about/Applications";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -58,6 +59,8 @@ export default async function AboutPage({
           </div>
         </div>
       </div>
+
+      <Applications />
     </PageTransition>
   );
 }

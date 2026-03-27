@@ -71,7 +71,47 @@
     "subtitle": "De piloot achter de lens",
     "bio1": "Mijn naam is Wout Wybo, oprichter van FlyLens en gepassioneerd door visuele storytelling vanuit de lucht. Met een achtergrond in beeld en technologie combineer ik creativiteit met precisie om locaties op een unieke manier vast te leggen.",
     "bio2": "Vanuit Knokke-Heist werk ik met dronebeelden om bedrijven, gebouwen en omgevingen vanuit een nieuw perspectief te tonen. Door vloeiende 4K drone shots ontstaat een visuele indruk die met traditionele fotografie of video moeilijk te bereiken is.",
-    "bio3": "Mijn focus ligt op korte, hoogwaardige droneclips die direct bruikbaar zijn voor social media, websites en marketing. Zo krijgen bedrijven professionele beelden die hun locatie op een sterke en moderne manier presenteren."
+    "bio3": "Mijn focus ligt op korte, hoogwaardige droneclips die direct bruikbaar zijn voor social media, websites en marketing. Zo krijgen bedrijven professionele beelden die hun locatie op een sterke en moderne manier presenteren.",
+    "applications": {
+      "title": "FlyLens Toepassingen",
+      "subtitle": "Ontdek in welke sectoren onze dronebeelden het verschil maken.",
+      "construction": {
+        "title": "Bouw & Infrastructuur",
+        "description": "Voortgang van bouwprojecten vastleggen, inspecties en overzichtsbeelden van werven en infrastructuur."
+      },
+      "realEstate": {
+        "title": "Vastgoed & Immo",
+        "description": "Panden en omgevingen vanuit de lucht presenteren voor een krachtige eerste indruk bij potentiële kopers."
+      },
+      "hospitality": {
+        "title": "Horeca & Hotels",
+        "description": "Restaurants, hotels en hun omgeving in beeld brengen om gasten aan te trekken met sfeervolle luchtbeelden."
+      },
+      "events": {
+        "title": "Events & Festivals",
+        "description": "Evenementen en festivals vastleggen vanuit unieke luchtperspectieven voor promotie en aftermovies."
+      },
+      "automotive": {
+        "title": "Automotive",
+        "description": "Dynamische luchtbeelden van voertuigen en locaties voor dealers, merken en automotive marketing."
+      },
+      "tourism": {
+        "title": "Toerisme & Locaties",
+        "description": "Toeristische bestemmingen en locaties vanuit de lucht tonen om bezoekers te inspireren."
+      },
+      "corporate": {
+        "title": "Bedrijven & Industrie",
+        "description": "Bedrijfsterreinen, fabrieken en kantoren professioneel in beeld brengen voor corporate communicatie."
+      },
+      "agriculture": {
+        "title": "Landbouw & Natuur",
+        "description": "Landbouwgronden, natuurgebieden en landschappen vastleggen voor analyse of visuele storytelling."
+      },
+      "socialMedia": {
+        "title": "Social Media & Marketing",
+        "description": "Korte, krachtige droneclips geoptimaliseerd voor social media en digitale marketingcampagnes."
+      }
+    }
   },
   "contact": {
     "title": "Contact",

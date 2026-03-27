@@ -71,7 +71,47 @@
     "subtitle": "The pilot behind the lens",
     "bio1": "My name is Wout Wybo, founder of FlyLens and passionate about visual storytelling from the air. With a background in imaging and technology, I combine creativity with precision to capture locations in a unique way.",
     "bio2": "Based in Knokke-Heist, I work with drone footage to showcase businesses, buildings, and environments from a new perspective. Through smooth 4K drone shots, a visual impression emerges that is difficult to achieve with traditional photography or video.",
-    "bio3": "My focus is on short, high-quality drone clips that are ready to use for social media, websites, and marketing. This way, businesses receive professional footage that presents their location in a strong and modern way."
+    "bio3": "My focus is on short, high-quality drone clips that are ready to use for social media, websites, and marketing. This way, businesses receive professional footage that presents their location in a strong and modern way.",
+    "applications": {
+      "title": "FlyLens Applications",
+      "subtitle": "Discover the industries where our drone footage makes a difference.",
+      "construction": {
+        "title": "Construction & Infrastructure",
+        "description": "Capture construction progress, inspections, and aerial overviews of sites and infrastructure."
+      },
+      "realEstate": {
+        "title": "Real Estate & Property",
+        "description": "Present properties and surroundings from the air for a powerful first impression on potential buyers."
+      },
+      "hospitality": {
+        "title": "Hospitality & Hotels",
+        "description": "Showcase restaurants, hotels, and their surroundings to attract guests with stunning aerial footage."
+      },
+      "events": {
+        "title": "Events & Festivals",
+        "description": "Capture events and festivals from unique aerial perspectives for promotion and aftermovies."
+      },
+      "automotive": {
+        "title": "Automotive",
+        "description": "Dynamic aerial footage of vehicles and locations for dealers, brands, and automotive marketing."
+      },
+      "tourism": {
+        "title": "Tourism & Locations",
+        "description": "Showcase tourist destinations and locations from the air to inspire visitors."
+      },
+      "corporate": {
+        "title": "Corporate & Industry",
+        "description": "Professionally capture business sites, factories, and offices for corporate communication."
+      },
+      "agriculture": {
+        "title": "Agriculture & Nature",
+        "description": "Capture farmlands, nature reserves, and landscapes for analysis or visual storytelling."
+      },
+      "socialMedia": {
+        "title": "Social Media & Marketing",
+        "description": "Short, impactful drone clips optimized for social media and digital marketing campaigns."
+      }
+    }
   },
   "contact": {
     "title": "Contact",
