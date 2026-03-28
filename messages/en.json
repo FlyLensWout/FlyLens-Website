@@ -117,11 +117,13 @@
     "services": {
       "cinematic": {
         "title": "Cinematic Videos",
-        "description": "Smooth, cinematic drone footage that brings your location or project to life with professional quality and creative compositions."
+        "description": "Smooth, cinematic drone footage that brings your location or project to life with professional quality and creative compositions.",
+        "cta": "View cinematic work"
       },
       "fpv": {
         "title": "FPV Shots",
-        "description": "Dynamic and immersive footage with FPV drones that fly through, around, and over locations for a unique, immersive experience."
+        "description": "Dynamic and immersive footage with FPV drones that fly through, around, and over locations for a unique, immersive experience.",
+        "cta": "View FPV work"
       }
     }
   },
