@@ -2,7 +2,6 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import PageTransition from "@/components/animations/PageTransition";
 import FadeIn from "@/components/animations/FadeIn";
-import Applications from "@/components/about/Applications";
 import ServiceCards from "@/components/about/ServiceCards";
 import type { Metadata } from "next";
 
@@ -61,7 +60,6 @@ export default async function AboutPage({
         </div>
       </div>
 
-      <Applications />
       <ServiceCards />
     </PageTransition>
   );
