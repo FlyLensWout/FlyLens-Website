@@ -70,7 +70,15 @@ export default async function PortfolioPage({
               <p className="text-primary/60 text-lg">{t("subtitle")}</p>
             </div>
           </FadeIn>
-          <PortfolioGrid items={items} noVideosText={t("noVideos")} loadMoreText={t("loadMore")} />
+          <PortfolioGrid
+            items={items}
+            noVideosText={t("noVideos")}
+            loadMoreText={t("loadMore")}
+            tabs={[
+              { label: t("cinematic"), tag: "cinematic" },
+              { label: t("fpv"), tag: "fpv" },
+            ]}
+          />
         </div>
       </div>
     </PageTransition>

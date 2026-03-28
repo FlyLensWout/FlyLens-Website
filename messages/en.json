@@ -58,7 +58,9 @@
     "title": "Portfolio",
     "subtitle": "A selection of our drone videography",
     "noVideos": "More videos coming soon.",
-    "loadMore": "Load more"
+    "loadMore": "Load more",
+    "cinematic": "Cinematic",
+    "fpv": "FPV"
   },
   "clientWork": {
     "title": "Client Work",

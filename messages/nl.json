@@ -58,7 +58,9 @@
     "title": "Portfolio",
     "subtitle": "Een selectie van onze drone videografie",
     "noVideos": "Binnenkort meer video's beschikbaar.",
-    "loadMore": "Meer laden"
+    "loadMore": "Meer laden",
+    "cinematic": "Cinematic",
+    "fpv": "FPV"
   },
   "clientWork": {
     "title": "Klantenwerk",
