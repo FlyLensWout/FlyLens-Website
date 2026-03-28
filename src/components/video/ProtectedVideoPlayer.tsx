@@ -37,6 +37,7 @@ export default function VideoPlayer({
         ref={videoRef}
         src={`${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${encodeURIComponent(videoFileName.trim())}`}
         title={title}
+        autoPlay
         controls
         controlsList="nodownload noplaybackrate"
         disablePictureInPicture
