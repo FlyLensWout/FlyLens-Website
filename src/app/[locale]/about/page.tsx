@@ -26,12 +26,12 @@ export default async function AboutPage({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             {/* Photo */}
             <FadeIn direction="right">
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden">
+              <div className="aspect-[4/5] max-w-sm rounded-2xl overflow-hidden">
                 <Image
                   src="/images/wout-wybo.jpg"
                   alt="Wout Wybo - FlyLens"
-                  width={640}
-                  height={800}
+                  width={480}
+                  height={600}
                   className="w-full h-full object-cover"
                   priority
                 />
