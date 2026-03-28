@@ -142,7 +142,8 @@
   "footer": {
     "rights": "All rights reserved",
     "stockPlatforms": "Stock platforms",
-    "followUs": "Follow us"
+    "followUs": "Follow us",
+    "madeBy": "Website made by"
   },
   "error": {
     "title": "Something went wrong",

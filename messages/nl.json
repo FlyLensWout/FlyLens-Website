@@ -142,7 +142,8 @@
   "footer": {
     "rights": "Alle rechten voorbehouden",
     "stockPlatforms": "Stock platforms",
-    "followUs": "Volg ons"
+    "followUs": "Volg ons",
+    "madeBy": "Website gemaakt door"
   },
   "error": {
     "title": "Er is iets misgegaan",
