@@ -3,7 +3,7 @@ import { readdir } from "fs/promises";
 import { resolve } from "path";
 
 const client = createClient({
-  projectId: "usrk6gtp",
+  projectId: "odzqgd33",
   dataset: "production",
   apiVersion: "2024-01-01",
   token: process.env.SANITY_API_TOKEN,
@@ -11,6 +11,11 @@ const client = createClient({
 });
 
 const videosDir = resolve("public/videos-mp4");
+
+// Extract title from filename (e.g. "zeebrugge_sunset_7.mp4" -> "zeebrugge sunset 7")
+function getTitle(fileName) {
+  return fileName.replace(".mp4", "").replace(/_/g, " ");
+}
 
 // Extract location name from filename (e.g. "Ramskapelle_1.mp4" -> "Ramskapelle")
 function getLocationName(fileName) {
@@ -29,45 +34,40 @@ async function main() {
   const files = (await readdir(videosDir)).filter((f) => f.endsWith(".mp4"));
   console.log(`Found ${files.length} videos\n`);
 
-  // Check existing documents to avoid duplicates
+  // Delete all existing portfolio documents
   const existing = await client.fetch(
-    `*[_type == "portfolio"]{ videoFileName }`
+    `*[_type == "portfolio"]{ _id }`
   );
-  const existingFiles = new Set(existing.map((d) => d.videoFileName));
+  console.log(`Deleting ${existing.length} existing portfolio documents...`);
+  for (const doc of existing) {
+    await client.delete(doc._id);
+    console.log(`DELETED: ${doc._id}`);
+  }
 
+  // Recreate all portfolio documents with cinematic tag
   let created = 0;
-  let skipped = 0;
 
   for (const file of files) {
-    if (existingFiles.has(file)) {
-      console.log(`SKIP: ${file} (already exists)`);
-      skipped++;
-      continue;
-    }
-
+    const title = getTitle(file);
     const location = getLocationName(file);
 
     const doc = {
       _type: "portfolio",
       title: {
-        nl: location,
-        en: location,
-      },
-      description: {
-        nl: `${file}`,
-        en: `${file}`,
+        nl: title,
+        en: title,
       },
       videoFileName: file,
-      tags: [location],
-      order: created + skipped + 1,
+      tags: [location, "cinematic"],
+      order: created + 1,
     };
 
     await client.create(doc);
-    console.log(`CREATED: ${file} -> "${location}"`);
+    console.log(`CREATED: ${file} -> "${title}"`);
     created++;
   }
 
-  console.log(`\nDone! Created: ${created}, Skipped: ${skipped}`);
+  console.log(`\nDone! Deleted: ${existing.length}, Created: ${created}`);
 }
 
 main().catch(console.error);

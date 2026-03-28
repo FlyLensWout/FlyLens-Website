@@ -41,8 +41,8 @@ export default async function ContactPage({
                     </svg>
                     <div>
                       <p className="text-sm font-medium text-primary">Email</p>
-                      <a href="mailto:info@flylens.be" className="text-primary/60 hover:text-accent transition-colors">
-                        info@flylens.be
+                      <a href="mailto:flylensw@gmail.com" className="text-primary/60 hover:text-accent transition-colors">
+                        flylensw@gmail.com
                       </a>
                     </div>
                   </div>
