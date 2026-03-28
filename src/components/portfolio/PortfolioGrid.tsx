@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import PortfolioCard from "./PortfolioCard";
 import StaggerChildren from "@/components/animations/StaggerChildren";
 import { StaggerItem } from "@/components/animations/StaggerChildren";
@@ -28,7 +29,9 @@ interface PortfolioGridProps {
 }
 
 export default function PortfolioGrid({ items, noVideosText, loadMoreText, tabs }: PortfolioGridProps) {
-  const [activeTag, setActiveTag] = useState(tabs[0]?.tag ?? "");
+  const searchParams = useSearchParams();
+  const initialTab = tabs.find((t) => t.tag === searchParams.get("tab"))?.tag ?? tabs[0]?.tag ?? "";
+  const [activeTag, setActiveTag] = useState(initialTab);
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
 
   const filteredItems = items.filter((item) =>
