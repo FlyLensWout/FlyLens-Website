@@ -135,6 +135,8 @@
     "message": "Bericht",
     "description": "Interesse in professionele dronebeelden voor jouw bedrijf of locatie? FlyLens helpt bedrijven hun omgeving op een unieke en visueel krachtige manier in beeld te brengen.",
     "description2": "Neem gerust contact op om jouw project of locatie te bespreken. Samen bekijken we hoe dronebeelden jouw bedrijf het best kunnen versterken.",
+    "location": "Locatie",
+    "vat": "BTW",
     "send": "Verstuur",
     "success": "Bericht succesvol verstuurd!",
     "error": "Er is iets misgegaan. Probeer het later opnieuw."

@@ -135,6 +135,8 @@
     "message": "Message",
     "description": "Interested in professional drone footage for your business or location? FlyLens helps businesses showcase their environment in a unique and visually powerful way.",
     "description2": "Feel free to get in touch to discuss your project or location. Together, we'll explore how drone footage can best strengthen your business.",
+    "location": "Location",
+    "vat": "VAT",
     "send": "Send",
     "success": "Message sent successfully!",
     "error": "Something went wrong. Please try again later."
