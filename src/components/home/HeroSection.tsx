@@ -1,31 +1,29 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
 import FadeIn from "@/components/animations/FadeIn";
 
 const heroImages = Array.from({ length: 13 }, (_, i) => `/images/hero/hero-${i}.jpg`);
-const DEFAULT_HERO = heroImages[0];
+
+function getRandomHero() {
+  return heroImages[Math.floor(Math.random() * heroImages.length)];
+}
 
 export default function HeroSection() {
   const t = useTranslations("home");
   const locale = useLocale();
 
-  const [heroImage, setHeroImage] = useState(DEFAULT_HERO);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setHeroImage(heroImages[Math.floor(Math.random() * heroImages.length)]);
-    setMounted(true);
-  }, []);
+  const [heroImage] = useState(getRandomHero);
 
   return (
     <section className="relative text-white py-32 md:py-48 overflow-hidden">
-      {/* Background image — hidden until client picks random image to avoid hydration flash */}
-      <div className={mounted ? "opacity-100 transition-opacity duration-300" : "opacity-0"}>
+      {/* Background image — random per visit, so suppress hydration mismatch */}
+      <div suppressHydrationWarning>
         <Image
+          suppressHydrationWarning
           src={heroImage}
           alt={t("heroAlt")}
           fill
