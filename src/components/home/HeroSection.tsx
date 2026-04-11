@@ -19,7 +19,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative text-white py-32 md:py-48 overflow-hidden">
+    <section className="relative text-white py-32 md:py-48 overflow-hidden bg-primary">
       {/* Background image — only rendered client-side to ensure a fresh random pick per visit */}
       {heroImage && (
         <Image
