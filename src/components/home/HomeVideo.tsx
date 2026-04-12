@@ -4,29 +4,32 @@ import { useRef, useState, useEffect } from "react";
 
 export default function HomeVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [muted, setMuted] = useState(false);
-  const [playing, setPlaying] = useState(true);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [muted, setMuted] = useState(true);
+  const [playing, setPlaying] = useState(false);
+  const userPaused = useRef(false);
 
   useEffect(() => {
+    const section = sectionRef.current;
     const video = videoRef.current;
-    if (!video) return;
+    if (!section || !video) return;
 
-    // Browsers block unmuted autoplay — start muted, then unmute once playing
-    video.muted = true;
-    const playPromise = video.play();
-    if (playPromise) {
-      playPromise
-        .then(() => {
-          video.muted = false;
-          setMuted(false);
-        })
-        .catch(() => {
-          // Autoplay blocked entirely — keep muted and retry
-          video.muted = true;
-          setMuted(true);
-          video.play().catch(() => {});
-        });
-    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (!userPaused.current) {
+            video.play().then(() => setPlaying(true)).catch(() => {});
+          }
+        } else if (!video.paused) {
+          video.pause();
+          setPlaying(false);
+        }
+      },
+      { threshold: 0.3 },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
   }, []);
 
   const toggleMute = () => {
@@ -40,20 +43,21 @@ export default function HomeVideo() {
     if (!videoRef.current) return;
     if (playing) {
       videoRef.current.pause();
+      userPaused.current = true;
     } else {
       videoRef.current.play();
+      userPaused.current = false;
     }
     setPlaying(!playing);
   };
 
   return (
-    <section className="py-10 md:py-16 px-4">
+    <section ref={sectionRef} className="py-10 md:py-16 px-4">
       <div className="max-w-5xl mx-auto">
         <div className="relative aspect-video rounded-lg overflow-hidden bg-black">
           <video
             ref={videoRef}
             className="w-full h-full object-cover"
-            autoPlay
             muted
             loop
             playsInline
