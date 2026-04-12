@@ -5,7 +5,7 @@ import { useRef, useState, useEffect } from "react";
 export default function HomeVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
-  const [muted, setMuted] = useState(true);
+  const [muted, setMuted] = useState(false);
   const [playing, setPlaying] = useState(false);
   const userPaused = useRef(false);
 
@@ -18,7 +18,18 @@ export default function HomeVideo() {
       ([entry]) => {
         if (entry.isIntersecting) {
           if (!userPaused.current) {
-            video.play().then(() => setPlaying(true)).catch(() => {});
+            // Try to play unmuted first; if the browser blocks it, fall back to muted
+            video.muted = false;
+            video.play().then(() => {
+              setPlaying(true);
+              setMuted(false);
+            }).catch(() => {
+              video.muted = true;
+              video.play().then(() => {
+                setPlaying(true);
+                setMuted(true);
+              }).catch(() => {});
+            });
           }
         } else if (!video.paused) {
           video.pause();
@@ -58,7 +69,6 @@ export default function HomeVideo() {
           <video
             ref={videoRef}
             className="w-full h-full object-cover"
-            muted
             loop
             playsInline
             preload="metadata"
