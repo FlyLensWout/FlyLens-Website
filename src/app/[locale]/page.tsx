@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import HeroSection from "@/components/home/HeroSection";
 import HomeIntro from "@/components/home/HomeIntro";
+import HomeVideo from "@/components/home/HomeVideo";
 import WhatWeDeliver from "@/components/home/WhatWeDeliver";
 import StockPlatforms from "@/components/home/StockPlatforms";
 import Applications from "@/components/about/Applications";
@@ -25,6 +26,7 @@ export default async function HomePage({
       <div>
         <HeroSection />
         <HomeIntro />
+        <HomeVideo />
         <WhatWeDeliver />
         <StockPlatforms />
         <Applications />
