@@ -1,6 +1,8 @@
 "use client";
 
 import { useRef, useState, useEffect, useCallback } from "react";
+import { useTranslations } from "next-intl";
+import FadeIn from "@/components/animations/FadeIn";
 
 const H265_SRC = "/homepageVideo/Introductie_FlyLens_H.265_LowQ.mp4";
 const H264_SRC = "/homepageVideo/Introductie_FlyLens_H.264_LowQ.mp4";
@@ -20,6 +22,7 @@ function checkBlackFrames(video: HTMLVideoElement): boolean {
 }
 
 export default function HomeVideo() {
+  const t = useTranslations("home.video");
   const videoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const [muted, setMuted] = useState(false);
@@ -132,6 +135,11 @@ export default function HomeVideo() {
   return (
     <section ref={sectionRef} className="py-10 md:py-16 px-4">
       <div className="max-w-5xl mx-auto">
+        <FadeIn>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
+            {t("title")}
+          </h2>
+        </FadeIn>
         <div className="relative aspect-video rounded-lg overflow-hidden bg-black">
           <video
             ref={videoRef}
