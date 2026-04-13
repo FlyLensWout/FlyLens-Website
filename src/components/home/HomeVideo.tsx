@@ -135,10 +135,10 @@ export default function HomeVideo() {
   };
 
   return (
-    <section ref={sectionRef} className="py-10 md:py-16 px-4">
+    <section ref={sectionRef} className="pt-0 md:pt-2 pb-10 md:pb-16 px-4">
       <div className="max-w-5xl mx-auto">
         <FadeIn>
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">
             {t("title")}
           </h2>
         </FadeIn>
