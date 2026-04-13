@@ -140,6 +140,7 @@ export default function HomeVideo() {
             {t("title")}
           </h2>
         </FadeIn>
+        <FadeIn delay={0.15}>
         <div className="relative aspect-video rounded-lg overflow-hidden bg-black">
           <video
             ref={videoRef}
@@ -245,6 +246,7 @@ export default function HomeVideo() {
           </button>
           </div>
         </div>
+        </FadeIn>
       </div>
     </section>
   );
