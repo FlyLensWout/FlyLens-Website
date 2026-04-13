@@ -119,6 +119,16 @@ export default function HomeVideo() {
     setPlaying(!playing);
   };
 
+  const toggleFullscreen = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      video.requestFullscreen();
+    }
+  };
+
   return (
     <section ref={sectionRef} className="py-10 md:py-16 px-4">
       <div className="max-w-5xl mx-auto">
@@ -203,6 +213,27 @@ export default function HomeVideo() {
                 <path d="M15.54 8.46a5 5 0 010 7.08" />
               </svg>
             )}
+          </button>
+          <button
+            onClick={toggleFullscreen}
+            className="bg-black/50 hover:bg-black/70 text-white rounded-full w-10 h-10 flex items-center justify-center transition-colors backdrop-blur-sm"
+            aria-label="Fullscreen"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="w-5 h-5"
+            >
+              <polyline points="15 3 21 3 21 9" />
+              <polyline points="9 21 3 21 3 15" />
+              <line x1="21" y1="3" x2="14" y2="10" />
+              <line x1="3" y1="21" x2="10" y2="14" />
+            </svg>
           </button>
           </div>
         </div>
