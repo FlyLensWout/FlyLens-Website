@@ -1,6 +1,23 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
+
+const H265_SRC = "/homepageVideo/Introductie_FlyLens_H.265_LowQ.mp4";
+const H264_SRC = "/homepageVideo/Introductie_FlyLens_H.264_LowQ.mp4";
+
+function checkBlackFrames(video: HTMLVideoElement): boolean {
+  const canvas = document.createElement("canvas");
+  canvas.width = 16;
+  canvas.height = 16;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return false;
+  ctx.drawImage(video, 0, 0, 16, 16);
+  const data = ctx.getImageData(0, 0, 16, 16).data;
+  for (let i = 0; i < data.length; i += 4) {
+    if (data[i] > 0 || data[i + 1] > 0 || data[i + 2] > 0) return false;
+  }
+  return true;
+}
 
 export default function HomeVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -8,7 +25,46 @@ export default function HomeVideo() {
   const [muted, setMuted] = useState(false);
   const [playing, setPlaying] = useState(false);
   const userPaused = useRef(false);
+  const [videoSrc, setVideoSrc] = useState(H265_SRC);
+  const fellBack = useRef(false);
+  const checkedPixels = useRef(false);
 
+  const startPlayback = useCallback(async (video: HTMLVideoElement) => {
+    try {
+      video.muted = false;
+      await video.play();
+      setPlaying(true);
+      setMuted(false);
+    } catch {
+      try {
+        video.muted = true;
+        await video.play();
+        setPlaying(true);
+        setMuted(true);
+      } catch {
+        // Can't autoplay at all
+      }
+    }
+  }, []);
+
+  // When videoSrc changes, reload the video and start playback
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.load();
+
+    // If we fell back to H.264, auto-play it
+    if (fellBack.current) {
+      const onCanPlay = () => {
+        startPlayback(video);
+      };
+      video.addEventListener("canplay", onCanPlay, { once: true });
+      return () => video.removeEventListener("canplay", onCanPlay);
+    }
+  }, [videoSrc, startPlayback]);
+
+  // Intersection observer for auto-play on scroll
   useEffect(() => {
     const section = sectionRef.current;
     const video = videoRef.current;
@@ -18,17 +74,18 @@ export default function HomeVideo() {
       ([entry]) => {
         if (entry.isIntersecting) {
           if (!userPaused.current) {
-            // Try to play unmuted first; if the browser blocks it, fall back to muted
-            video.muted = false;
-            video.play().then(() => {
-              setPlaying(true);
-              setMuted(false);
-            }).catch(() => {
-              video.muted = true;
-              video.play().then(() => {
-                setPlaying(true);
-                setMuted(true);
-              }).catch(() => {});
+            startPlayback(video).then(() => {
+              // After playback starts with H.265, check for black frames
+              if (!checkedPixels.current && !fellBack.current && videoSrc === H265_SRC) {
+                checkedPixels.current = true;
+                setTimeout(() => {
+                  if (checkBlackFrames(video)) {
+                    video.pause();
+                    fellBack.current = true;
+                    setVideoSrc(H264_SRC);
+                  }
+                }, 500);
+              }
             });
           }
         } else if (!video.paused) {
@@ -41,7 +98,7 @@ export default function HomeVideo() {
 
     observer.observe(section);
     return () => observer.disconnect();
-  }, []);
+  }, [videoSrc, startPlayback]);
 
   const toggleMute = () => {
     if (videoRef.current) {
@@ -73,10 +130,7 @@ export default function HomeVideo() {
             playsInline
             preload="metadata"
           >
-            <source
-              src="/homepageVideo/Introductie_FlyLens_H.265_LowQ.mp4"
-              type="video/mp4"
-            />
+            <source src={videoSrc} type="video/mp4" />
           </video>
           <div className="absolute bottom-4 right-4 z-20 flex gap-2">
           <button
