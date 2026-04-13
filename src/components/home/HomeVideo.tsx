@@ -127,8 +127,10 @@ export default function HomeVideo() {
     if (!video) return;
     if (document.fullscreenElement) {
       document.exitFullscreen();
-    } else {
+    } else if (video.requestFullscreen) {
       video.requestFullscreen();
+    } else if ((video as any).webkitEnterFullscreen) {
+      (video as any).webkitEnterFullscreen();
     }
   };
 
