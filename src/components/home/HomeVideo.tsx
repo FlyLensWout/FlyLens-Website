@@ -4,7 +4,7 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import FadeIn from "@/components/animations/FadeIn";
 
-const H265_SRC = "/homepageVideo/Introductie_FlyLens_H.265_LowQ.mp4";
+const H265_SRC = "/homepageVideo/Introductie_FlyLens_H.264_LowQ.mp4";
 const H264_SRC = "/homepageVideo/Introductie_FlyLens_H.264_LowQ.mp4";
 
 function checkBlackFrames(video: HTMLVideoElement): boolean {
